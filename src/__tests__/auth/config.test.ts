@@ -22,13 +22,13 @@ describe('NextAuth Configuration', () => {
     it('should define session strategy', async () => {
       const { authOptions } = await import('@/lib/auth/config');
       expect(authOptions.session).toBeDefined();
-      expect(authOptions.session.strategy).toBe('jwt');
+      expect(authOptions.session!.strategy).toBe('jwt');
     });
 
     it('should configure session max age', async () => {
       const { authOptions } = await import('@/lib/auth/config');
-      expect(authOptions.session.maxAge).toBeDefined();
-      expect(authOptions.session.maxAge).toBeGreaterThan(0);
+      expect(authOptions.session!.maxAge).toBeDefined();
+      expect(authOptions.session!.maxAge).toBeGreaterThan(0);
     });
   });
 
@@ -47,8 +47,8 @@ describe('NextAuth Configuration', () => {
     it('credentials provider should have authorize function', async () => {
       const { authOptions } = await import('@/lib/auth/config');
       const credentialsProvider = authOptions.providers.find(
-        (p: { type: string; id: string; authorize?: () => unknown }) => p.type === 'credentials' || p.id === 'credentials'
-      );
+        (p) => (p as { type?: string; id?: string }).id === 'credentials'
+      ) as { authorize?: (...args: unknown[]) => unknown } | undefined;
       expect(credentialsProvider?.authorize).toBeDefined();
     });
 
@@ -65,18 +65,18 @@ describe('NextAuth Configuration', () => {
     it('should define jwt callback', async () => {
       const { authOptions } = await import('@/lib/auth/config');
       expect(authOptions.callbacks).toBeDefined();
-      expect(authOptions.callbacks.jwt).toBeDefined();
+      expect(authOptions.callbacks!.jwt).toBeDefined();
     });
 
     it('should define session callback', async () => {
       const { authOptions } = await import('@/lib/auth/config');
-      expect(authOptions.callbacks.session).toBeDefined();
+      expect(authOptions.callbacks!.session).toBeDefined();
     });
 
     it('should include businessId in session', async () => {
       const { authOptions } = await import('@/lib/auth/config');
       // Session callback should be able to add businessId to session
-      expect(typeof authOptions.callbacks.session).toBe('function');
+      expect(typeof authOptions.callbacks!.session).toBe('function');
     });
   });
 
@@ -84,12 +84,12 @@ describe('NextAuth Configuration', () => {
     it('should define custom sign-in page', async () => {
       const { authOptions } = await import('@/lib/auth/config');
       expect(authOptions.pages).toBeDefined();
-      expect(authOptions.pages.signIn).toBe('/login');
+      expect(authOptions.pages!.signIn).toBe('/login');
     });
 
     it('should define custom error page', async () => {
       const { authOptions } = await import('@/lib/auth/config');
-      expect(authOptions.pages.error).toBe('/auth/error');
+      expect(authOptions.pages!.error).toBe('/auth/error');
     });
   });
 
