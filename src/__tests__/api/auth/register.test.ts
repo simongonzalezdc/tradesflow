@@ -2,6 +2,7 @@ const mockUserFindUnique = jest.fn();
 const mockUserCreate = jest.fn();
 const mockBusinessCreate = jest.fn();
 const mockBusinessFindUnique = jest.fn();
+const mockTransaction = jest.fn();
 
 jest.mock('@/lib/db/client', () => ({
   db: {
@@ -13,6 +14,7 @@ jest.mock('@/lib/db/client', () => ({
       create: (data: unknown) => mockBusinessCreate(data),
       findUnique: () => mockBusinessFindUnique(),
     },
+    $transaction: (fn: (tx: unknown) => Promise<unknown>) => mockTransaction(fn),
   },
 }));
 
@@ -20,9 +22,32 @@ jest.mock('bcryptjs', () => ({
   hash: jest.fn().mockResolvedValue('hashed-password'),
 }));
 
+// Mock next/server to avoid ReferenceError: Request is not defined in jsdom
+jest.mock('next/server', () => {
+  return {
+    NextRequest: class NextRequest {
+      private _body: unknown;
+      constructor(_input: unknown, init?: { body?: unknown }) {
+        this._body = init?.body;
+      }
+      json() {
+        return Promise.resolve(this._body);
+      }
+    },
+    NextResponse: {
+      json: (body: unknown, init?: { status?: number }) => ({
+        status: init?.status ?? 200,
+        json: () => Promise.resolve(body),
+        headers: new Map(),
+      }),
+    },
+  };
+});
+
 import { POST } from '@/app/api/auth/register/route';
 
 function createRequest(body: Record<string, string>) {
+  // Use the mocked NextRequest which accepts body directly
   return { json: () => Promise.resolve(body) } as unknown as Parameters<typeof POST>[0];
 }
 
@@ -46,6 +71,18 @@ describe('POST /api/auth/register', () => {
         businessId: data.data.businessId,
       })
     );
+    // Default: $transaction passes the callback a mock tx that delegates to the standalone mocks
+    mockTransaction.mockImplementation(async (fn: (tx: unknown) => Promise<unknown>) => {
+      const tx = {
+        business: {
+          create: (data: unknown) => mockBusinessCreate(data),
+        },
+        user: {
+          create: (data: unknown) => mockUserCreate(data),
+        },
+      };
+      return fn(tx);
+    });
   });
 
   describe('Validation', () => {

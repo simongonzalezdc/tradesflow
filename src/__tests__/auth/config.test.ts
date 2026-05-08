@@ -1,6 +1,10 @@
 import { readFileSync, existsSync } from 'fs';
 import { join } from 'path';
 
+// Set required env vars before importing auth config
+process.env.NEXTAUTH_SECRET = 'test-secret-for-jest';
+process.env.NEXTAUTH_URL = 'http://localhost:3000';
+
 describe('NextAuth Configuration', () => {
   const projectRoot = join(__dirname, '../../..');
 
