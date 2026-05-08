@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Competitive Analysis | TradesFlow Sales Package</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: #f9fafb;
+        }
+        .nav {
+            background: white;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 16px 24px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .nav a {
+            color: #3b82f6;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .nav a:hover { text-decoration: underline; }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 24px;
+            background: white;
+            min-height: calc(100vh - 57px);
+        }
+        h1 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 8px;
+        }
+        .subtitle {
+            color: #6b7280;
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+        h2 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #111827;
+            margin: 32px 0 16px;
+            padding-top: 16px;
+            border-top: 1px solid #e5e7eb;
+        }
+        h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #374151;
+            margin: 24px 0 12px;
+        }
+        p { margin-bottom: 16px; color: #4b5563; }
+        ul { margin: 16px 0 16px 24px; }
+        li { margin-bottom: 8px; color: #4b5563; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            font-size: 14px;
+        }
+        th, td {
+            padding: 10px 12px;
+            text-align: center;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        th {
+            background: #f9fafb;
+            font-weight: 600;
+            color: #374151;
+        }
+        td:first-child, th:first-child { text-align: left; }
+        .check { color: #22c55e; font-weight: bold; }
+        .cross { color: #ef4444; }
+        .highlight-box {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+            padding: 24px;
+            border-radius: 12px;
+            margin: 24px 0;
+        }
+        .highlight-box h3 { color: white; margin-top: 0; }
+        .highlight-box p, .highlight-box li { color: rgba(255,255,255,0.9); }
+        .gap-item {
+            background: #fef2f2;
+            border-left: 4px solid #ef4444;
+            padding: 12px 16px;
+            margin: 8px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .advantage-item {
+            background: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            padding: 12px 16px;
+            margin: 8px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .cta-box {
+            background: #f0fdf4;
+            border: 1px solid #86efac;
+            padding: 24px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .cta-box a {
+            display: inline-block;
+            background: #22c55e;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        @media print {
+            .nav { display: none; }
+            .container { padding: 0; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="../index.html">← Back to Index</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>TradesFlow Competitive Analysis</h1>
+        <p class="subtitle">Positioning Against Field Service Alternatives</p>
+
+        <div class="highlight-box">
+            <h3>Market Position</h3>
+            <p>TradesFlow occupies a unique position: <strong>purpose-built for trades, simple enough for solo operators, powerful enough for teams.</strong></p>
+        </div>
+
+        <h2>Competitor Overview</h2>
+        <table>
+            <tr><th>Platform</th><th>Target Market</th><th>Key Strength</th><th>Key Weakness</th></tr>
+            <tr><td>ServiceTitan</td><td>Large HVAC/Plumbing</td><td>Comprehensive</td><td>Expensive, complex</td></tr>
+            <tr><td>Housecall Pro</td><td>Home services</td><td>Marketing features</td><td>Per-user fees</td></tr>
+            <tr><td>Jobber</td><td>Small field service</td><td>Clean UI</td><td>Limited equipment tracking</td></tr>
+            <tr><td>FieldEdge</td><td>HVAC/Plumbing</td><td>QuickBooks sync</td><td>Dated interface</td></tr>
+            <tr><td>Service Fusion</td><td>Mid-market</td><td>Fleet tracking</td><td>Complex setup</td></tr>
+        </table>
+
+        <h2>Feature Comparison Matrix</h2>
+        <table>
+            <tr>
+                <th>Feature</th>
+                <th>TradesFlow</th>
+                <th>ServiceTitan</th>
+                <th>Housecall Pro</th>
+                <th>Jobber</th>
+            </tr>
+            <tr><td>Customer CRM</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+            <tr><td>Scheduling</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+            <tr><td>Invoicing</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+            <tr><td>Mobile App</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+            <tr><td><strong>Equipment Passport™</strong></td><td class="check">✓</td><td>Limited</td><td class="cross">✗</td><td class="cross">✗</td></tr>
+            <tr><td>Full Service History</td><td class="check">✓</td><td class="check">✓</td><td>Limited</td><td>Limited</td></tr>
+            <tr><td>Photo Documentation</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+            <tr><td>Warranty Tracking</td><td class="check">✓</td><td class="check">✓</td><td class="cross">✗</td><td class="cross">✗</td></tr>
+            <tr><td>SMS Included</td><td class="check">✓</td><td>Add-on</td><td>Limited</td><td>Add-on</td></tr>
+            <tr><td><strong>Per-User Fees</strong></td><td class="check">No</td><td class="cross">Yes</td><td class="cross">Yes</td><td class="cross">Yes</td></tr>
+            <tr><td>Contract Required</td><td class="check">No</td><td class="cross">Yes</td><td class="check">No</td><td class="check">No</td></tr>
+        </table>
+
+        <h2>Pricing Comparison</h2>
+        <h3>Monthly Cost by Team Size</h3>
+        <table>
+            <tr><th>Team Size</th><th>TradesFlow</th><th>Housecall Pro</th><th>Jobber</th><th>ServiceTitan</th></tr>
+            <tr><td>1 user</td><td><strong>$29</strong></td><td>$65+</td><td>$49+</td><td>$125+</td></tr>
+            <tr><td>3 users</td><td><strong>$79</strong></td><td>$165+</td><td>$129+</td><td>$375+</td></tr>
+            <tr><td>5 users</td><td><strong>$79</strong></td><td>$199+</td><td>$249+</td><td>$398+</td></tr>
+            <tr><td>10 users</td><td><strong>$199</strong></td><td>$399+</td><td>$449+</td><td>$796+</td></tr>
+            <tr><td>20 users</td><td><strong>$199</strong></td><td>$799+</td><td>$899+</td><td>$1,592+</td></tr>
+        </table>
+
+        <div class="advantage-item">
+            <strong>TradesFlow saves $1,440 - $3,828 annually compared to alternatives.</strong>
+        </div>
+
+        <h2>TradesFlow Advantages</h2>
+
+        <div class="advantage-item">
+            <h3>1. Equipment Passport™ — Unique to TradesFlow</h3>
+            <p>No other platform offers comprehensive equipment tracking with full specifications, warranty tracking, photo documentation, and complete service history.</p>
+        </div>
+
+        <div class="advantage-item">
+            <h3>2. Trade-Specific Design</h3>
+            <p>Built for HVAC, Plumbing, Electrical, Roofing, and Appliance Repair—not generic "home services."</p>
+        </div>
+
+        <div class="advantage-item">
+            <h3>3. Simplicity Without Sacrifice</h3>
+            <p>Features you actually need, 5-minute setup, intuitive interface—no 2-week implementation or training required.</p>
+        </div>
+
+        <div class="advantage-item">
+            <h3>4. Fair Pricing Model</h3>
+            <p>Unlimited users (Enterprise), month-to-month, transparent pricing, no hidden add-ons.</p>
+        </div>
+
+        <h2>TradesFlow Gaps (Honest Assessment)</h2>
+
+        <div class="gap-item">
+            <strong>Online Booking</strong> — Planned Q2 2026
+        </div>
+        <div class="gap-item">
+            <strong>Integrated Payments</strong> — Planned Q2 2026
+        </div>
+        <div class="gap-item">
+            <strong>QuickBooks Sync</strong> — Planned Q3 2026
+        </div>
+        <div class="gap-item">
+            <strong>Marketing Automation</strong> — Planned Q4 2026
+        </div>
+        <div class="gap-item">
+            <strong>Inventory Management</strong> — Planned 2027
+        </div>
+
+        <h2>Ideal Customer Profile</h2>
+
+        <h3>Best Fit</h3>
+        <ul>
+            <li>Solo technicians to 50+ employee companies</li>
+            <li>HVAC, Plumbing, Electrical, Roofing, Appliance Repair</li>
+            <li>Growing businesses ready to professionalize</li>
+            <li>Teams frustrated with per-user pricing</li>
+            <li>Value simplicity over feature bloat</li>
+        </ul>
+
+        <h3>Less Ideal Fit</h3>
+        <ul>
+            <li>Very large enterprises (500+ technicians) — consider ServiceTitan</li>
+            <li>Businesses needing complex inventory management today</li>
+            <li>Companies requiring extensive third-party integrations today</li>
+        </ul>
+
+        <div class="cta-box">
+            <h3>Compare for Yourself</h3>
+            <p>14-day free trial. No credit card required. See the difference.</p>
+            <a href="https://tradesflow.com/signup">Start Free Trial</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TradesFlow Sales Package</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            min-height: 100vh;
+            color: #1f2937;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon svg {
+            width: 28px;
+            height: 28px;
+            color: white;
+        }
+
+        .logo-text {
+            font-size: 32px;
+            font-weight: 700;
+            color: #111827;
+        }
+
+        .header h1 {
+            font-size: 42px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 16px;
+        }
+
+        .header p {
+            font-size: 18px;
+            color: #6b7280;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            padding: 32px;
+            border-radius: 16px;
+        }
+
+        .stat {
+            text-align: center;
+            color: white;
+        }
+
+        .stat-value {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* Role Guide */
+        .role-guide {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 60px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .role-guide h2 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #111827;
+        }
+
+        .role-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .role-card {
+            background: #f9fafb;
+            border-radius: 12px;
+            padding: 24px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .role-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #111827;
+        }
+
+        .role-card ol {
+            margin-left: 20px;
+        }
+
+        .role-card li {
+            margin-bottom: 8px;
+            color: #4b5563;
+        }
+
+        .role-card a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+
+        .role-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* Document Grid */
+        .documents-section h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 32px;
+            color: #111827;
+            text-align: center;
+        }
+
+        .document-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .document-card {
+            background: white;
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e5e7eb;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .document-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .document-number {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+            border-radius: 8px;
+            text-align: center;
+            line-height: 32px;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+
+        .document-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #111827;
+        }
+
+        .document-card p {
+            color: #6b7280;
+            font-size: 14px;
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+
+        .document-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 13px;
+            color: #9ca3af;
+            margin-bottom: 20px;
+        }
+
+        .document-links {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+        }
+
+        .btn-secondary {
+            background: #f3f4f6;
+            color: #374151;
+            border: 1px solid #d1d5db;
+        }
+
+        .btn-secondary:hover {
+            background: #e5e7eb;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+            border-radius: 16px;
+            padding: 48px;
+            text-align: center;
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            color: #9ca3af;
+            margin-bottom: 32px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-cta {
+            background: white;
+            color: #111827;
+            padding: 14px 28px;
+            font-size: 16px;
+        }
+
+        .btn-cta:hover {
+            background: #f3f4f6;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 12px 26px;
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            color: #9ca3af;
+            font-size: 14px;
+        }
+
+        .footer a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 32px;
+            }
+
+            .stats-bar {
+                grid-template-columns: repeat(2, 1fr);
+                padding: 24px;
+            }
+
+            .stat-value {
+                font-size: 28px;
+            }
+
+            .cta-section {
+                padding: 32px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                </div>
+                <span class="logo-text">TradesFlow</span>
+            </div>
+            <h1>Sales Package</h1>
+            <p>Complete sales enablement materials for evaluating TradesFlow. Everything you need to make an informed decision.</p>
+        </header>
+
+        <!-- Stats Bar -->
+        <div class="stats-bar">
+            <div class="stat">
+                <div class="stat-value">500+</div>
+                <div class="stat-label">Active Businesses</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">50K+</div>
+                <div class="stat-label">Jobs Completed</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">$15M+</div>
+                <div class="stat-label">Invoices Processed</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">4.9/5</div>
+                <div class="stat-label">Customer Rating</div>
+            </div>
+        </div>
+
+        <!-- Role Guide -->
+        <section class="role-guide">
+            <h2>Start Here: Role-Based Guide</h2>
+            <div class="role-cards">
+                <div class="role-card">
+                    <h3>Executive / Business Owner</h3>
+                    <ol>
+                        <li><a href="html/executive-brief/index.html">Executive Brief</a></li>
+                        <li><a href="html/business-case/index.html">Business Case</a></li>
+                        <li><a href="html/competitive-analysis/index.html">Competitive Analysis</a></li>
+                    </ol>
+                </div>
+                <div class="role-card">
+                    <h3>Operations Manager</h3>
+                    <ol>
+                        <li><a href="html/executive-brief/index.html">Executive Brief</a></li>
+                        <li><a href="html/product-guide/index.html">Product Guide</a></li>
+                        <li><a href="html/roadmap/index.html">Product Roadmap</a></li>
+                    </ol>
+                </div>
+                <div class="role-card">
+                    <h3>IT / Security Reviewer</h3>
+                    <ol>
+                        <li><a href="html/technical-specs/index.html">Technical Specs</a></li>
+                        <li><a href="html/adversarial-audit/index.html">Adversarial Audit</a></li>
+                    </ol>
+                </div>
+                <div class="role-card">
+                    <h3>Procurement / Finance</h3>
+                    <ol>
+                        <li><a href="html/business-case/index.html">Business Case</a></li>
+                        <li><a href="html/competitive-analysis/index.html">Competitive Analysis</a></li>
+                        <li><a href="html/adversarial-audit/index.html">Adversarial Audit</a></li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- Documents Grid -->
+        <section class="documents-section">
+            <h2>Document Library</h2>
+            <div class="document-grid">
+                <!-- Executive Brief -->
+                <div class="document-card">
+                    <span class="document-number">01</span>
+                    <h3>Executive Brief</h3>
+                    <p>First touchpoint — get the quick overview of TradesFlow, key pain points solved, and pricing at a glance.</p>
+                    <div class="document-meta">
+                        <span>2 min read</span>
+                        <span>•</span>
+                        <span>Overview</span>
+                    </div>
+                    <div class="document-links">
+                        <a href="html/executive-brief/index.html" class="btn btn-primary">View HTML</a>
+                        <a href="markdown/01-executive-brief.md" class="btn btn-secondary">Markdown</a>
+                    </div>
+                </div>
+
+                <!-- Product Guide -->
+                <div class="document-card">
+                    <span class="document-number">02</span>
+                    <h3>Product Guide</h3>
+                    <p>Complete feature walkthrough with diagrams, screenshots, and detailed explanations of every module.</p>
+                    <div class="document-meta">
+                        <span>15 min read</span>
+                        <span>•</span>
+                        <span>Full Features</span>
+                    </div>
+                    <div class="document-links">
+                        <a href="html/product-guide/index.html" class="btn btn-primary">View HTML</a>
+                        <a href="markdown/02-product-guide.md" class="btn btn-secondary">Markdown</a>
+                    </div>
+                </div>
+
+                <!-- Business Case -->
+                <div class="document-card">
+                    <span class="document-number">03</span>
+                    <h3>Business Case</h3>
+                    <p>ROI analysis with time savings breakdown, revenue impact projections, and TCO calculator.</p>
+                    <div class="document-meta">
+                        <span>10 min read</span>
+                        <span>•</span>
+                        <span>ROI Analysis</span>
+                    </div>
+                    <div class="document-links">
+                        <a href="html/business-case/index.html" class="btn btn-primary">View HTML</a>
+                        <a href="markdown/03-business-case.md" class="btn btn-secondary">Markdown</a>
+                    </div>
+                </div>
+
+                <!-- Competitive Analysis -->
+                <div class="document-card">
+                    <span class="document-number">04</span>
+                    <h3>Competitive Analysis</h3>
+                    <p>How we compare to ServiceTitan, Housecall Pro, Jobber, and others. Feature matrix and pricing.</p>
+                    <div class="document-meta">
+                        <span>8 min read</span>
+                        <span>•</span>
+                        <span>Competitors</span>
+                    </div>
+                    <div class="document-links">
+                        <a href="html/competitive-analysis/index.html" class="btn btn-primary">View HTML</a>
+                        <a href="markdown/04-competitive-analysis.md" class="btn btn-secondary">Markdown</a>
+                    </div>
+                </div>
+
+                <!-- Adversarial Audit -->
+                <div class="document-card">
+                    <span class="document-number">05</span>
+                    <h3>Adversarial Audit</h3>
+                    <p>Radical transparency: what we're missing, our security gaps, technical debt, and how we're addressing them.</p>
+                    <div class="document-meta">
+                        <span>12 min read</span>
+                        <span>•</span>
+                        <span>Transparency</span>
+                    </div>
+                    <div class="document-links">
+                        <a href="html/adversarial-audit/index.html" class="btn btn-primary">View HTML</a>
+                        <a href="markdown/05-adversarial-audit.md" class="btn btn-secondary">Markdown</a>
+                    </div>
+                </div>
+
+                <!-- Roadmap -->
+                <div class="document-card">
+                    <span class="document-number">06</span>
+                    <h3>Product Roadmap</h3>
+                    <p>Development timeline: what's live, what's coming in Waves 2-8, and our long-term vision.</p>
+                    <div class="document-meta">
+                        <span>5 min read</span>
+                        <span>•</span>
+                        <span>Timeline</span>
+                    </div>
+                    <div class="document-links">
+                        <a href="html/roadmap/index.html" class="btn btn-primary">View HTML</a>
+                        <a href="markdown/06-roadmap.md" class="btn btn-secondary">Markdown</a>
+                    </div>
+                </div>
+
+                <!-- Technical Specs -->
+                <div class="document-card">
+                    <span class="document-number">07</span>
+                    <h3>Technical Specs</h3>
+                    <p>For IT/security reviewers: architecture, data model, API structure, security measures, and compliance.</p>
+                    <div class="document-meta">
+                        <span>10 min read</span>
+                        <span>•</span>
+                        <span>Technical</span>
+                    </div>
+                    <div class="document-links">
+                        <a href="html/technical-specs/index.html" class="btn btn-primary">View HTML</a>
+                        <a href="markdown/07-technical-specs.md" class="btn btn-secondary">Markdown</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h2>Ready to Transform Your Trade Business?</h2>
+            <p>Start your 14-day free trial today. No credit card required. Setup in under 5 minutes.</p>
+            <div class="cta-buttons">
+                <a href="https://tradesflow.com/signup" class="btn btn-cta">Start Free Trial</a>
+                <a href="mailto:sales@tradesflow.com" class="btn btn-outline">Contact Sales</a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>TradesFlow Sales Package v1.0 • March 2026</p>
+            <p>
+                <a href="mailto:sales@tradesflow.com">sales@tradesflow.com</a> •
+                <a href="mailto:support@tradesflow.com">support@tradesflow.com</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

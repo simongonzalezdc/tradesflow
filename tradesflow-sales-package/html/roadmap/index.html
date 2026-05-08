@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Roadmap | TradesFlow Sales Package</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: #f9fafb;
+        }
+        .nav {
+            background: white;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 16px 24px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .nav a {
+            color: #3b82f6;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .nav a:hover { text-decoration: underline; }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 24px;
+            background: white;
+            min-height: calc(100vh - 57px);
+        }
+        h1 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 8px;
+        }
+        .subtitle {
+            color: #6b7280;
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+        h2 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #111827;
+            margin: 32px 0 16px;
+            padding-top: 16px;
+            border-top: 1px solid #e5e7eb;
+        }
+        h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #374151;
+            margin: 24px 0 12px;
+        }
+        p { margin-bottom: 16px; color: #4b5563; }
+        ul { margin: 16px 0 16px 24px; }
+        li { margin-bottom: 8px; color: #4b5563; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+        }
+        th, td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        th {
+            background: #f9fafb;
+            font-weight: 600;
+            color: #374151;
+        }
+        .complete {
+            background: #f0fdf4;
+            border: 1px solid #86efac;
+            padding: 16px;
+            border-radius: 8px;
+            margin: 8px 0;
+        }
+        .complete h3 { color: #166534; margin-top: 0; }
+        .in-progress {
+            background: #fef3c7;
+            border: 1px solid #fcd34d;
+            padding: 16px;
+            border-radius: 8px;
+            margin: 8px 0;
+        }
+        .in-progress h3 { color: #92400e; margin-top: 0; }
+        .planned {
+            background: #f3f4f6;
+            border: 1px solid #d1d5db;
+            padding: 16px;
+            border-radius: 8px;
+            margin: 8px 0;
+        }
+        .planned h3 { color: #4b5563; margin-top: 0; }
+        .timeline {
+            background: #1f2937;
+            color: #e5e7eb;
+            padding: 16px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 12px;
+            overflow-x: auto;
+            margin: 16px 0;
+            white-space: pre;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+            padding: 24px;
+            border-radius: 12px;
+            margin: 24px 0;
+        }
+        .highlight-box h3 { color: white; margin-top: 0; }
+        .highlight-box p, .highlight-box li { color: rgba(255,255,255,0.9); }
+        .check { color: #22c55e; font-weight: bold; }
+        .cta-box {
+            background: #f0fdf4;
+            border: 1px solid #86efac;
+            padding: 24px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .cta-box a {
+            display: inline-block;
+            background: #22c55e;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        @media print {
+            .nav { display: none; }
+            .container { padding: 0; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="../index.html">← Back to Index</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>TradesFlow Product Roadmap</h1>
+        <p class="subtitle">Where We've Been and Where We're Going</p>
+
+        <div class="highlight-box">
+            <h3>Development Philosophy</h3>
+            <ul>
+                <li><strong>Test-Driven Development (TDD)</strong>: We write tests before code</li>
+                <li><strong>Incremental Delivery</strong>: Small, reliable releases over big, risky ones</li>
+                <li><strong>Customer Feedback</strong>: Real user input drives prioritization</li>
+                <li><strong>Technical Excellence</strong>: Clean architecture, minimal debt</li>
+            </ul>
+        </div>
+
+        <h2>Current State: Wave 1 Complete</h2>
+
+        <div class="complete">
+            <h3>✓ Wave 1: Foundation</h3>
+            <table>
+                <tr><th>Component</th><th>Status</th></tr>
+                <tr><td>Authentication System</td><td class="check">✓ Live</td></tr>
+                <tr><td>User Management</td><td class="check">✓ Live</td></tr>
+                <tr><td>Business Setup</td><td class="check">✓ Live</td></tr>
+                <tr><td>Landing Page</td><td class="check">✓ Live</td></tr>
+                <tr><td>Test Coverage</td><td class="check">✓ 199+ tests</td></tr>
+            </table>
+        </div>
+
+        <h2>Near-Term: Waves 2-4 (Q1-Q2 2026)</h2>
+
+        <div class="in-progress">
+            <h3>Wave 2: Customer Management (Next)</h3>
+            <ul>
+                <li>Customer CRUD operations</li>
+                <li>Customer Search (name, phone, email, address)</li>
+                <li>Customer History view</li>
+                <li>Notes System</li>
+            </ul>
+            <p><strong>Expected: Q1 2026</strong></p>
+        </div>
+
+        <div class="planned">
+            <h3>Wave 3: Appointment Scheduling</h3>
+            <ul>
+                <li>Calendar View (daily, weekly, monthly)</li>
+                <li>Appointment CRUD operations</li>
+                <li>Status Tracking</li>
+                <li>Technician Assignment</li>
+            </ul>
+            <p><strong>Expected: Q2 2026</strong></p>
+        </div>
+
+        <div class="planned">
+            <h3>Wave 4: Invoicing</h3>
+            <ul>
+                <li>Invoice Creation</li>
+                <li>Line Items management</li>
+                <li>Status Tracking</li>
+                <li>Payment Recording</li>
+            </ul>
+            <p><strong>Expected: Q2 2026</strong></p>
+        </div>
+
+        <h2>Mid-Term: Waves 5-8 (Q2-Q4 2026)</h2>
+
+        <div class="planned">
+            <h3>Wave 5: Equipment Passport™ (Q2 2026)</h3>
+            <ul>
+                <li>Equipment CRUD operations</li>
+                <li>Equipment Types (HVAC, Plumbing, Electrical, etc.)</li>
+                <li>Specifications tracking</li>
+                <li>Warranty tracking</li>
+                <li>Photo Upload</li>
+                <li>Service History integration</li>
+            </ul>
+        </div>
+
+        <div class="planned">
+            <h3>Wave 6: Notifications (Q3 2026)</h3>
+            <ul>
+                <li>SMS Integration (Twilio)</li>
+                <li>Email Integration</li>
+                <li>24h/48h Reminders</li>
+                <li>Automated Triggers</li>
+            </ul>
+        </div>
+
+        <div class="planned">
+            <h3>Wave 7: Price Book (Q3 2026)</h3>
+            <ul>
+                <li>Service Catalog</li>
+                <li>Categories</li>
+                <li>Flat-Rate Pricing</li>
+                <li>Time Estimates</li>
+            </ul>
+        </div>
+
+        <div class="planned">
+            <h3>Wave 8: Mobile App (Q4 2026)</h3>
+            <ul>
+                <li>iOS App</li>
+                <li>Android App</li>
+                <li>Technician View</li>
+                <li>Photo Capture</li>
+                <li>Offline Mode</li>
+            </ul>
+        </div>
+
+        <h2>Long-Term: 2027+</h2>
+
+        <div class="planned">
+            <h3>Wave 9: Online Booking</h3>
+            <p>Customer Portal, Self-service booking, Availability Sync</p>
+        </div>
+
+        <div class="planned">
+            <h3>Wave 10: Payments</h3>
+            <p>Stripe Integration, Online Invoice Payments, ACH Transfers</p>
+        </div>
+
+        <div class="planned">
+            <h3>Wave 11: Integrations</h3>
+            <p>QuickBooks Sync, Zapier, API Access, Webhooks</p>
+        </div>
+
+        <h2>Timeline Visualization</h2>
+
+        <div class="timeline">2026
+├── Q1: Wave 2 (Customer Management)
+├── Q2: Wave 3 (Scheduling) + Wave 4 (Invoicing) + Wave 5 (Equipment Passport)
+├── Q3: Wave 6 (Notifications) + Wave 7 (Price Book)
+└── Q4: Wave 8 (Mobile App)
+
+2027
+├── Wave 9 (Online Booking)
+├── Wave 10 (Payments)
+└── Wave 11 (Integrations)</div>
+
+        <h2>Release Cadence</h2>
+
+        <table>
+            <tr><th>Timeline</th><th>Commitment</th></tr>
+            <tr><td>Bug fixes</td><td>24-48 hours for critical</td></tr>
+            <tr><td>Minor updates</td><td>Weekly</td></tr>
+            <tr><td>Feature releases</td><td>Monthly</td></tr>
+            <tr><td>Major releases</td><td>Quarterly</td></tr>
+        </table>
+
+        <h2>Our Commitment to You</h2>
+
+        <div class="highlight-box">
+            <h3>What We Promise</h3>
+            <ul>
+                <li><strong>No Feature Removal</strong>: Once shipped, features stay</li>
+                <li><strong>Data Portability</strong>: Export your data anytime</li>
+                <li><strong>Price Stability</strong>: Grandfathered rates for loyal customers</li>
+                <li><strong>Communication</strong>: No surprises on major changes</li>
+            </ul>
+        </div>
+
+        <div class="cta-box">
+            <h3>Join the Journey</h3>
+            <p>Start your 14-day free trial and grow with us.</p>
+            <a href="https://tradesflow.com/signup">Start Free Trial</a>
+        </div>
+    </div>
+</body>
+</html>

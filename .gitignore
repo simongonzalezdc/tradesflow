@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+
+# Build output
+.next/
+out/
+
+# Cache
+.swc/
+.eslintcache
+
+# Environment (none found, but good practice)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# OMC / Claude session state
+.omc/
+.claude/settings.local.json
+
+# Sales package zip (redundant with folder)
+tradesflow-sales-package.zip
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
