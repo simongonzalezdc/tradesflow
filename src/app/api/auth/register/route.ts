@@ -53,27 +53,30 @@ export async function POST(request: NextRequest) {
       slugCounter++;
     }
 
-    // Create business
-    const business = await db.business.create({
-      data: {
-        name: businessName,
-        slug,
-        phone: businessPhone,
-      },
-    });
-
-    // Hash password
+    // Hash password (CPU-bound, do before transaction to avoid holding a DB connection)
     const hashedPassword = await hash(password, 12);
 
-    // Create user with OWNER role
-    const user = await db.user.create({
-      data: {
-        email,
-        password: hashedPassword,
-        name,
-        role: 'OWNER',
-        businessId: business.id,
-      },
+    // Create business and user atomically to prevent orphaned records
+    const { business, user } = await db.$transaction(async (tx) => {
+      const business = await tx.business.create({
+        data: {
+          name: businessName,
+          slug,
+          phone: businessPhone,
+        },
+      });
+
+      const user = await tx.user.create({
+        data: {
+          email,
+          password: hashedPassword,
+          name,
+          role: 'OWNER',
+          businessId: business.id,
+        },
+      });
+
+      return { business, user };
     });
 
     // Return user without password
