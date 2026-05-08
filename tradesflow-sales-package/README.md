@@ -116,16 +116,16 @@ tradesflow-sales-package/
 
 ### Ready to Try?
 
-- **Free Trial**: [tradesflow.com/signup](https://tradesflow.com/signup)
+- **Free Trial**: [YOUR_DOMAIN/signup](https://YOUR_DOMAIN/signup)
 - **No credit card required**
 - **14 days free**
 - **Setup in 5 minutes**
 
 ### Questions?
 
-- **Sales**: sales@tradesflow.com
-- **Support**: support@tradesflow.com
-- **Technical**: support@tradesflow.com
+- **Sales**: sales@YOUR_DOMAIN
+- **Support**: support@YOUR_DOMAIN
+- **Technical**: support@YOUR_DOMAIN
 
 ---
 
@@ -141,4 +141,4 @@ tradesflow-sales-package/
 
 *Package Version: 1.0*
 *Last Updated: March 2026*
-*Contact: sales@tradesflow.com*
+*Contact: sales@YOUR_DOMAIN*

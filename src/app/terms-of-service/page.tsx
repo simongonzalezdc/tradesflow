@@ -93,7 +93,7 @@ export default function TermsOfServicePage() {
             <h2 className="text-xl font-semibold text-gray-900">11. Contact</h2>
             <p>
               For questions about these terms, contact{' '}
-              <a href="mailto:legal@tradesflow.ca" className="text-blue-600 hover:underline">legal@tradesflow.ca</a>.
+              <a href="mailto:legal@YOUR_DOMAIN" className="text-blue-600 hover:underline">legal@YOUR_DOMAIN</a>.
             </p>
           </section>
         </div>

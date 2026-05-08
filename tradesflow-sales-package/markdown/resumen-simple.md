@@ -138,9 +138,9 @@ Todo esto está en el plan de desarrollo con fechas claras. Y la prueba gratuita
 
 ## Para empezar
 
-- **Prueba gratis:** https://tradesflow.com/signup — prueba de 14 días, sin tarjeta de crédito
-- **Habla con el equipo:** sales@tradesflow.com
-- **Soporte:** support@tradesflow.com
+- **Prueba gratis:** https://YOUR_DOMAIN/signup — prueba de 14 días, sin tarjeta de crédito
+- **Habla con el equipo:** sales@YOUR_DOMAIN
+- **Soporte:** support@YOUR_DOMAIN
 
 ---
 

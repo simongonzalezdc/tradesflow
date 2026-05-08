@@ -215,8 +215,8 @@ For trade businesses with:
 
 ## Next Steps
 
-1. **Start Free Trial**: https://tradesflow.com/signup
-2. **Schedule Demo**: sales@tradesflow.com
+1. **Start Free Trial**: https://YOUR_DOMAIN/signup
+2. **Schedule Demo**: sales@YOUR_DOMAIN
 3. **Calculate Your ROI**: Use your actual numbers in our interactive calculator
 
 ---

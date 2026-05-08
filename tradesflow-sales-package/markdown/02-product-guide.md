@@ -370,7 +370,7 @@ DRAFT → SENT → PAID
 
 ## Support & Resources
 
-- **Email Support**: support@tradesflow.com
+- **Email Support**: support@YOUR_DOMAIN
 - **Help Center**: Comprehensive documentation
 - **Video Tutorials**: Step-by-step guides
 - **Priority Support**: Professional and Enterprise plans

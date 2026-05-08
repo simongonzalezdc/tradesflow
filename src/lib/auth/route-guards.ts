@@ -3,6 +3,10 @@ const publicRoutes = [
   '/',
   '/login',
   '/signup',
+  '/privacy-policy',
+  '/terms-of-service',
+  '/cookie-policy',
+  '/auth/error',
 ];
 
 // Routes that should not be intercepted

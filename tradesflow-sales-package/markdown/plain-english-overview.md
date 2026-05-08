@@ -138,9 +138,9 @@ All of these are on the development roadmap with clear timelines. And the free t
 
 ## Getting started
 
-- **Try it free:** https://tradesflow.com/signup — 14-day trial, no credit card needed
-- **Talk to the team:** sales@tradesflow.com
-- **Support:** support@tradesflow.com
+- **Try it free:** https://YOUR_DOMAIN/signup — 14-day trial, no credit card needed
+- **Talk to the team:** sales@YOUR_DOMAIN
+- **Support:** support@YOUR_DOMAIN
 
 ---
 

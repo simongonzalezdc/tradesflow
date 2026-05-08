@@ -71,7 +71,7 @@ export default function CookiePolicyPage() {
             <h2 className="text-xl font-semibold text-gray-900">Contact</h2>
             <p>
               Questions about our use of cookies? Contact{' '}
-              <a href="mailto:privacy@tradesflow.ca" className="text-blue-600 hover:underline">privacy@tradesflow.ca</a>.
+              <a href="mailto:privacy@YOUR_DOMAIN" className="text-blue-600 hover:underline">privacy@YOUR_DOMAIN</a>.
             </p>
           </section>
         </div>

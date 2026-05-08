@@ -31,6 +31,10 @@ export async function POST(request: NextRequest) {
     const userId = session.user.id;
     const businessId = session.user.businessId;
 
+    if (!businessId) {
+      return NextResponse.json({ error: 'Invalid session' }, { status: 401 });
+    }
+
     const user = await db.user.findUnique({
       where: { id: userId },
       select: { role: true, business: { select: { id: true, users: { select: { id: true } } } } },

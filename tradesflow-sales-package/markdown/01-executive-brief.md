@@ -88,8 +88,8 @@ The Equipment Passport is a complete digital record of every HVAC unit, water he
 
 Start your **14-day free trial** today. No credit card required. Setup in under 5 minutes.
 
-**Contact Sales**: sales@tradesflow.com
-**Start Trial**: https://tradesflow.com/signup
+**Contact Sales**: sales@YOUR_DOMAIN
+**Start Trial**: https://YOUR_DOMAIN/signup
 
 ---
 

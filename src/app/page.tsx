@@ -694,17 +694,17 @@ export default function Home() {
               <ul className="space-y-2 text-sm">
                 <li><a href="#features" className="hover:text-white transition-colors">Features</a></li>
                 <li><a href="#pricing" className="hover:text-white transition-colors">Pricing</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Integrations</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Mobile App</a></li>
+                <li><span className="text-gray-500 cursor-default">Integrations (Coming Soon)</span></li>
+                <li><span className="text-gray-500 cursor-default">Mobile App (Coming Soon)</span></li>
               </ul>
             </div>
             <div>
               <h4 className="text-white font-semibold mb-4">Support</h4>
               <ul className="space-y-2 text-sm">
                 <li><a href="#faq" className="hover:text-white transition-colors">FAQ</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Help Center</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Contact Us</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Status</a></li>
+                <li><span className="text-gray-500 cursor-default">Help Center (Coming Soon)</span></li>
+                <li><span className="text-gray-500 cursor-default">Contact Us (Coming Soon)</span></li>
+                <li><span className="text-gray-500 cursor-default">Status (Coming Soon)</span></li>
               </ul>
             </div>
             <div>

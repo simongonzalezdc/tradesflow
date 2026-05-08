@@ -259,4 +259,4 @@ We're confident that if TradesFlow fits your needs, you'll know within the trial
 
 *This document is updated quarterly. Last updated: March 2026.*
 
-*Questions? Contact our team: sales@tradesflow.com*
+*Questions? Contact our team: sales@YOUR_DOMAIN*

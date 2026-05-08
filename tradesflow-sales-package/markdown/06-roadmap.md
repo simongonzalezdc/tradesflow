@@ -265,9 +265,9 @@ We build software the right way:
 
 ## Questions?
 
-**Sales Inquiries**: sales@tradesflow.com
-**Feature Requests**: feedback@tradesflow.com
-**Technical Questions**: support@tradesflow.com
+**Sales Inquiries**: sales@YOUR_DOMAIN
+**Feature Requests**: feedback@YOUR_DOMAIN
+**Technical Questions**: support@YOUR_DOMAIN
 
 ---
 
