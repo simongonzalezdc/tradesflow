@@ -131,7 +131,8 @@ exports.Prisma.UserScalarFieldEnum = {
   isActive: 'isActive',
   businessId: 'businessId',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  emailVerified: 'emailVerified'
 };
 
 exports.Prisma.BusinessScalarFieldEnum = {
@@ -266,6 +267,31 @@ exports.Prisma.NotificationScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.ConsentScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  consentType: 'consentType',
+  consentText: 'consentText',
+  version: 'version',
+  consentedAt: 'consentedAt',
+  revokedAt: 'revokedAt',
+  ipAddress: 'ipAddress',
+  userAgent: 'userAgent',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.AuditLogScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  action: 'action',
+  resource: 'resource',
+  resourceId: 'resourceId',
+  ipAddress: 'ipAddress',
+  userAgent: 'userAgent',
+  metadata: 'metadata',
+  createdAt: 'createdAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -326,6 +352,15 @@ exports.NotificationStatus = exports.$Enums.NotificationStatus = {
   FAILED: 'FAILED'
 };
 
+exports.ConsentType = exports.$Enums.ConsentType = {
+  PRIVACY_POLICY: 'PRIVACY_POLICY',
+  TERMS_OF_SERVICE: 'TERMS_OF_SERVICE',
+  MARKETING: 'MARKETING',
+  NOTIFICATIONS_SMS: 'NOTIFICATIONS_SMS',
+  NOTIFICATIONS_EMAIL: 'NOTIFICATIONS_EMAIL',
+  PHOTO_CAPTURE: 'PHOTO_CAPTURE'
+};
+
 exports.Prisma.ModelName = {
   User: 'User',
   Business: 'Business',
@@ -336,7 +371,9 @@ exports.Prisma.ModelName = {
   Equipment: 'Equipment',
   ServiceHistory: 'ServiceHistory',
   PriceBookItem: 'PriceBookItem',
-  Notification: 'Notification'
+  Notification: 'Notification',
+  Consent: 'Consent',
+  AuditLog: 'AuditLog'
 };
 
 /**

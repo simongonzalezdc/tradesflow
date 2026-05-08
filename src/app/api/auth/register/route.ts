@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { hash } from 'bcryptjs';
 import { db } from '@/lib/db/client';
 import { z } from 'zod';
+import { checkRateLimit } from '@/lib/rate-limit';
 
 const registerSchema = z.object({
   email: z.string().email('Invalid email format'),
@@ -9,6 +10,9 @@ const registerSchema = z.object({
   name: z.string().min(1, 'Name is required'),
   businessName: z.string().min(1, 'Business name is required'),
   businessPhone: z.string().min(1, 'Business phone is required'),
+  privacyConsent: z.literal(true, {
+    errorMap: () => ({ message: 'You must agree to the privacy policy' }),
+  }),
 });
 
 function generateSlug(name: string): string {
@@ -20,6 +24,15 @@ function generateSlug(name: string): string {
 
 export async function POST(request: NextRequest) {
   try {
+    const clientIp = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
+    const { allowed, retryAfterMs } = checkRateLimit(`register:${clientIp}`);
+    if (!allowed) {
+      return NextResponse.json(
+        { error: 'Too many registration attempts. Please try again later.' },
+        { status: 429, headers: { 'Retry-After': String(Math.ceil(retryAfterMs / 1000)) } }
+      );
+    }
+
     const body = await request.json();
 
     // Validate input
@@ -31,7 +44,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { email, password, name, businessName, businessPhone } = validationResult.data;
+    const { email, password, name, businessName, businessPhone, privacyConsent } = validationResult.data;
 
     // Check if user already exists
     const existingUser = await db.user.findUnique({
@@ -76,6 +89,17 @@ export async function POST(request: NextRequest) {
         },
       });
 
+      await tx.consent.create({
+        data: {
+          userId: user.id,
+          consentType: 'PRIVACY_POLICY',
+          consentText: 'I agree to the Privacy Policy and Terms of Service',
+          version: '1.0',
+          ipAddress: request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || null,
+          userAgent: request.headers.get('user-agent') || null,
+        },
+      });
+
       return { business, user };
     });
 
@@ -91,7 +115,10 @@ export async function POST(request: NextRequest) {
       { status: 201 }
     );
   } catch (error) {
-    console.error('Registration error:', error);
+    console.error('Registration failed:', {
+      message: error instanceof Error ? error.message : 'Unknown error',
+      timestamp: new Date().toISOString(),
+    });
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

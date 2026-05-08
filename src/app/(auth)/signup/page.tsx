@@ -13,6 +13,7 @@ interface SignupFormData {
   password: string;
   businessName: string;
   businessPhone: string;
+  privacyConsent: boolean;
 }
 
 export default function SignupPage() {
@@ -33,6 +34,7 @@ export default function SignupPage() {
       password: '',
       businessName: '',
       businessPhone: '',
+      privacyConsent: false,
     },
   });
 
@@ -50,6 +52,7 @@ export default function SignupPage() {
           password: data.password,
           businessName: data.businessName,
           businessPhone: data.businessPhone,
+          privacyConsent: data.privacyConsent,
         }),
       });
 
@@ -145,6 +148,30 @@ export default function SignupPage() {
               required
               {...register('businessPhone', { required: 'Business phone is required' })}
             />
+
+            <div className="flex items-start">
+              <input
+                type="checkbox"
+                id="privacyConsent"
+                className="mt-1 h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                {...register('privacyConsent', {
+                  required: 'You must agree to the privacy policy to create an account',
+                })}
+              />
+              <label htmlFor="privacyConsent" className="ml-2 text-sm text-gray-600">
+                I agree to the{' '}
+                <Link href="/privacy-policy" className="text-blue-600 hover:text-blue-500 underline" target="_blank">
+                  Privacy Policy
+                </Link>{' '}
+                and{' '}
+                <Link href="/terms-of-service" className="text-blue-600 hover:text-blue-500 underline" target="_blank">
+                  Terms of Service
+                </Link>
+              </label>
+            </div>
+            {errors.privacyConsent && (
+              <p className="text-sm text-red-600">{errors.privacyConsent.message}</p>
+            )}
           </div>
 
           <Button

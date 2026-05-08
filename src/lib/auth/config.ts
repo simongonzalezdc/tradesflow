@@ -4,6 +4,14 @@ import { db } from '@/lib/db/client';
 import { compare } from 'bcryptjs';
 import { Role } from '@/generated/prisma';
 
+const secret = process.env.NEXTAUTH_SECRET;
+if (!secret && process.env.NODE_ENV === 'production' && typeof window === 'undefined' && !process.env.NEXT_PHASE) {
+  throw new Error(
+    'FATAL: NEXTAUTH_SECRET environment variable is required in production. ' +
+    'Generate one with: openssl rand -base64 32'
+  );
+}
+
 export const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
@@ -44,7 +52,18 @@ export const authOptions: NextAuthOptions = {
   ],
   session: {
     strategy: 'jwt',
-    maxAge: 30 * 24 * 60 * 60, // 30 days
+    maxAge: 30 * 24 * 60 * 60,
+  },
+  cookies: {
+    sessionToken: {
+      name: `${process.env.NODE_ENV === 'production' ? '__Secure-' : ''}next-auth.session-token`,
+      options: {
+        httpOnly: true,
+        sameSite: 'lax',
+        path: '/',
+        secure: process.env.NODE_ENV === 'production',
+      },
+    },
   },
   callbacks: {
     async jwt({ token, user }) {
@@ -68,5 +87,5 @@ export const authOptions: NextAuthOptions = {
     signIn: '/login',
     error: '/auth/error',
   },
-  secret: process.env.NEXTAUTH_SECRET,
+  secret,
 };

@@ -635,7 +635,7 @@ export default function Home() {
               },
               {
                 q: 'Is my data secure?',
-                a: 'Absolutely. We use industry-standard encryption, secure hosting, and regular security audits. Your business data is safe with us.',
+                a: 'We take data security seriously. Passwords are hashed with bcrypt, all connections use TLS encryption, session cookies are secured with httpOnly and SameSite attributes, and our database is hosted in Canada. For full details, see our Privacy Policy.',
               },
               {
                 q: 'Can I cancel anytime?',
@@ -710,14 +710,14 @@ export default function Home() {
             <div>
               <h4 className="text-white font-semibold mb-4">Legal</h4>
               <ul className="space-y-2 text-sm">
-                <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Cookie Policy</a></li>
+                <li><Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
+                <li><Link href="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</Link></li>
+                <li><Link href="/cookie-policy" className="hover:text-white transition-colors">Cookie Policy</Link></li>
               </ul>
             </div>
           </div>
           <div className="border-t border-gray-800 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="text-sm">© 2024 TradesFlow. All rights reserved.</p>
+            <p className="text-sm">&copy; {new Date().getFullYear()} TradesFlow. All rights reserved.</p>
             <p className="text-sm">Made with ♥ for tradespeople everywhere</p>
           </div>
         </div>

@@ -125,6 +125,7 @@ describe('Signup Page', () => {
       await user.type(screen.getByLabelText(/password/i), 'password123');
       await user.type(screen.getByLabelText(/business name/i), 'Test Business');
       await user.type(screen.getByLabelText(/business phone/i), '555-1234');
+      await user.click(screen.getByRole('checkbox', { name: /privacy policy/i }));
 
       const submitButton = screen.getByRole('button', { name: /create account/i });
       await user.click(submitButton);
@@ -150,6 +151,7 @@ describe('Signup Page', () => {
       await user.type(screen.getByLabelText(/password/i), 'password123');
       await user.type(screen.getByLabelText(/business name/i), 'Test Business');
       await user.type(screen.getByLabelText(/business phone/i), '555-1234');
+      await user.click(screen.getByRole('checkbox', { name: /privacy policy/i }));
 
       const submitButton = screen.getByRole('button', { name: /create account/i });
       await user.click(submitButton);
@@ -164,6 +166,7 @@ describe('Signup Page', () => {
             password: 'password123',
             businessName: 'Test Business',
             businessPhone: '555-1234',
+            privacyConsent: true,
           }),
         });
       });
@@ -183,6 +186,7 @@ describe('Signup Page', () => {
       await user.type(screen.getByLabelText(/password/i), 'password123');
       await user.type(screen.getByLabelText(/business name/i), 'Test Business');
       await user.type(screen.getByLabelText(/business phone/i), '555-1234');
+      await user.click(screen.getByRole('checkbox', { name: /privacy policy/i }));
 
       const submitButton = screen.getByRole('button', { name: /create account/i });
       await user.click(submitButton);
@@ -206,6 +210,7 @@ describe('Signup Page', () => {
       await user.type(screen.getByLabelText(/password/i), 'password123');
       await user.type(screen.getByLabelText(/business name/i), 'Test Business');
       await user.type(screen.getByLabelText(/business phone/i), '555-1234');
+      await user.click(screen.getByRole('checkbox', { name: /privacy policy/i }));
 
       const submitButton = screen.getByRole('button', { name: /create account/i });
       await user.click(submitButton);
@@ -226,6 +231,7 @@ describe('Signup Page', () => {
       await user.type(screen.getByLabelText(/password/i), 'password123');
       await user.type(screen.getByLabelText(/business name/i), 'Test Business');
       await user.type(screen.getByLabelText(/business phone/i), '555-1234');
+      await user.click(screen.getByRole('checkbox', { name: /privacy policy/i }));
 
       const submitButton = screen.getByRole('button', { name: /create account/i });
       await user.click(submitButton);

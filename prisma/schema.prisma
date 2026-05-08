@@ -75,11 +75,14 @@ model User {
   businessId String
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
+  emailVerified DateTime?
 
   business     Business       @relation(fields: [businessId], references: [id], onDelete: Cascade)
   appointments Appointment[]
   notifications Notification[]
   serviceHistory ServiceHistory[]
+  consents      Consent[]
+  auditLogs     AuditLog[]
 
   @@index([businessId])
 }
@@ -96,7 +99,7 @@ model Business {
   zipCode       String?
   logo          String?
   primaryColor  String?  @default("#3B82F6")
-  timezone      String   @default("America/New_York")
+  timezone      String   @default("America/Toronto")
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
 
@@ -298,4 +301,53 @@ model Notification {
   @@index([businessId])
   @@index([scheduledFor])
   @@index([status])
+}
+
+// ============================================================================
+// Consent & Privacy (PIPEDA Compliance)
+// ============================================================================
+
+enum ConsentType {
+  PRIVACY_POLICY
+  TERMS_OF_SERVICE
+  MARKETING
+  NOTIFICATIONS_SMS
+  NOTIFICATIONS_EMAIL
+  PHOTO_CAPTURE
+}
+
+model Consent {
+  id          String      @id @default(cuid())
+  userId      String
+  consentType ConsentType
+  consentText String
+  version     String
+  consentedAt DateTime    @default(now())
+  revokedAt   DateTime?
+  ipAddress   String?
+  userAgent   String?
+  createdAt   DateTime    @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([consentType])
+}
+
+model AuditLog {
+  id         String   @id @default(cuid())
+  userId     String
+  action     String
+  resource   String
+  resourceId String?
+  ipAddress  String?
+  userAgent  String?
+  metadata   String?
+  createdAt  DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([action])
+  @@index([createdAt])
 }
