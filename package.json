@@ -29,6 +29,13 @@
     "tailwind-merge": "^3.5.0",
     "zod": "^3.23.8"
   },
+  "overrides": {
+    "@testing-library/react": {
+      "react": "^19.2.6",
+      "react-dom": "^19.2.6",
+      "@types/react": "^19.2.14"
+    }
+  },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.4.5",
     "@testing-library/react": "^15.0.7",
