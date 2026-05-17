@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { Input } from '@/components/ui/Input';
 import { Button } from '@/components/ui/Button';
+import { AuthShell } from '@/components/marketing/AuthShell';
 import Link from 'next/link';
 
 interface SignupFormData {
@@ -74,30 +75,25 @@ export default function SignupPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
-        {/* Header */}
-        <div className="text-center">
-          <h1 className="text-3xl font-bold text-gray-900">TradesFlow</h1>
-          <h2 className="mt-6 text-2xl font-semibold text-gray-900">
-            Create your account
-          </h2>
-        </div>
-
-        {/* Error Message */}
+    <AuthShell
+      title="Start with a cleaner field-service record."
+      subtitle="Create the workspace your team will use for customers, scheduled work, equipment history, service notes, and billing handoffs."
+      panelTitle="Free trial"
+      panelText="No credit card required. Account setup is live today; core field-service modules are rolling out through 2026."
+    >
+      <div className="space-y-7">
         {error && (
-          <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-md">
+          <div className="rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-700" aria-live="polite">
             {error}
           </div>
         )}
 
-        {/* Form */}
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit(onSubmit)}>
+        <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
           <div className="space-y-4">
             <Input
               label="Full Name"
               type="text"
-              placeholder="Enter your full name"
+              placeholder="Your name"
               error={errors.name?.message}
               required
               {...register('name', { required: 'Name is required' })}
@@ -106,7 +102,7 @@ export default function SignupPage() {
             <Input
               label="Email"
               type="email"
-              placeholder="Enter your email"
+              placeholder="you@company.com"
               error={errors.email?.message}
               required
               {...register('email', {
@@ -136,7 +132,7 @@ export default function SignupPage() {
             <Input
               label="Business Name"
               type="text"
-              placeholder="Enter your business name"
+              placeholder="Your business name"
               error={errors.businessName?.message}
               required
               {...register('businessName', { required: 'Business name is required' })}
@@ -145,7 +141,7 @@ export default function SignupPage() {
             <Input
               label="Business Phone"
               type="tel"
-              placeholder="Enter your business phone"
+              placeholder="+1 (416) 555-0184"
               error={errors.businessPhone?.message}
               required
               {...register('businessPhone', { required: 'Business phone is required' })}
@@ -172,7 +168,7 @@ export default function SignupPage() {
               </label>
             </div>
             {errors.privacyConsent && (
-              <p className="text-sm text-red-600">{errors.privacyConsent.message}</p>
+              <p className="text-sm font-medium text-red-600">{errors.privacyConsent.message}</p>
             )}
           </div>
 
@@ -186,17 +182,16 @@ export default function SignupPage() {
           </Button>
         </form>
 
-        {/* Login Link */}
         <p className="text-center text-sm text-gray-600">
           Already have an account?{' '}
           <Link
             href="/login"
-            className="font-medium text-blue-600 hover:text-blue-500"
+            className="font-semibold text-blue-700 hover:text-blue-900"
           >
             Sign in
           </Link>
         </p>
       </div>
-    </div>
+    </AuthShell>
   );
 }

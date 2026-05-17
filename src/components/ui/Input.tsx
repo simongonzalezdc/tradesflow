@@ -41,12 +41,12 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             hasError ? `${inputId}-error` : helpText ? `${inputId}-help` : undefined
           }
           className={cn(
-            'block w-full rounded-md border-gray-300 shadow-sm',
-            'focus:border-blue-500 focus:ring-blue-500',
-            'disabled:bg-gray-50 disabled:text-gray-500 disabled:cursor-not-allowed',
+            'block w-full rounded-md border border-gray-300 bg-white text-slate-950 shadow-sm placeholder:text-slate-400',
+            'transition-colors duration-200 focus:border-blue-500 focus:ring-blue-500',
+            'disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500',
             'read-only:bg-gray-50',
             sizeStyles[size],
-            hasError ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : 'border',
+            hasError ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : '',
             className
           )}
           required={required}

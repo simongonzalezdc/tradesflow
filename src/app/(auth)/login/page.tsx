@@ -6,6 +6,7 @@ import { signIn } from 'next-auth/react';
 import { useForm } from 'react-hook-form';
 import { Input } from '@/components/ui/Input';
 import { Button } from '@/components/ui/Button';
+import { AuthShell } from '@/components/marketing/AuthShell';
 import Link from 'next/link';
 
 interface LoginFormData {
@@ -57,30 +58,25 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
-        {/* Header */}
-        <div className="text-center">
-          <h1 className="text-3xl font-bold text-gray-900">TradesFlow</h1>
-          <h2 className="mt-6 text-2xl font-semibold text-gray-900">
-            Sign in to your account
-          </h2>
-        </div>
-
-        {/* Error Message */}
+    <AuthShell
+      title="Sign in to your workspace."
+      subtitle="Get back to the service board, customer records, equipment history, and billing handoffs your team depends on."
+      panelTitle="Operator workspace"
+      panelText="Built for small trade teams that need one dependable record from first call to completed invoice."
+    >
+      <div className="space-y-7">
         {error && (
-          <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-md">
+          <div className="rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-700" aria-live="polite">
             {error}
           </div>
         )}
 
-        {/* Form */}
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit(onSubmit)}>
+        <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
           <div className="space-y-4">
             <Input
               label="Email"
               type="email"
-              placeholder="Enter your email"
+              placeholder="you@company.com"
               error={errors.email?.message}
               required
               {...register('email', {
@@ -114,17 +110,16 @@ export default function LoginPage() {
           </Button>
         </form>
 
-        {/* Sign Up Link */}
         <p className="text-center text-sm text-gray-600">
           Don&apos;t have an account?{' '}
           <Link
             href="/signup"
-            className="font-medium text-blue-600 hover:text-blue-500"
+            className="font-semibold text-blue-700 hover:text-blue-900"
           >
             Create one here
           </Link>
         </p>
       </div>
-    </div>
+    </AuthShell>
   );
 }

@@ -1,6 +1,6 @@
-import { withAuth } from 'next-auth/middleware';
+import { withAuth, type NextRequestWithAuth } from 'next-auth/middleware';
 import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
+import type { NextFetchEvent, NextRequest } from 'next/server';
 import {
   isPublicRoute,
   isIgnoredRoute,
@@ -16,7 +16,7 @@ export {
   isAuthRoute,
 } from '@/lib/auth/route-guards';
 
-// Export the handler for testing
+// Export the authenticated handler for testing and for protected app routes.
 export const middlewareHandler = withAuth(
   function middleware(req) {
     const { pathname } = req.nextUrl;
@@ -54,8 +54,13 @@ export const middlewareHandler = withAuth(
           return true;
         }
 
-        // For protected routes, require token
-        return !!token;
+        // For protected app routes, require token. Unknown routes should be
+        // allowed through so Next can render the public 404 surface.
+        if (isProtectedRoute(pathname)) {
+          return !!token;
+        }
+
+        return true;
       },
     },
     pages: {
@@ -65,7 +70,28 @@ export const middlewareHandler = withAuth(
 );
 
 // Default export for Next.js middleware
-export default middlewareHandler;
+export default function middleware(req: NextRequest, event: NextFetchEvent) {
+  const { pathname } = req.nextUrl;
+
+  if (isIgnoredRoute(pathname)) {
+    return NextResponse.next();
+  }
+
+  if (isPublicRoute(pathname)) {
+    const shouldLetAuthMiddlewareHandleSessionRedirects =
+      isAuthRoute(pathname) && Boolean(process.env.NEXTAUTH_SECRET);
+
+    if (!shouldLetAuthMiddlewareHandleSessionRedirects) {
+      return NextResponse.next();
+    }
+  }
+
+  if (!isProtectedRoute(pathname)) {
+    return NextResponse.next();
+  }
+
+  return middlewareHandler(req as NextRequestWithAuth, event);
+}
 
 // Configure which routes the middleware should run on
 export const config = {

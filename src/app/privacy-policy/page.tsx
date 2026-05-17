@@ -1,34 +1,27 @@
-import Link from 'next/link';
+import { LegalShell } from '@/components/marketing/LegalShell';
 
 export default function PrivacyPolicyPage() {
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-3xl mx-auto">
-        <h1 className="text-3xl font-bold text-gray-900 mb-8">Privacy Policy</h1>
-        <p className="text-sm text-gray-500 mb-8">
-          Last updated: May 8, 2026 &middot; Version 1.0
-        </p>
-
-        <div className="prose prose-gray max-w-none space-y-6 text-gray-700">
+    <LegalShell title="Privacy Policy" updated="Last updated: May 8, 2026 - Version 1.0">
           <section>
-            <h2 className="text-xl font-semibold text-gray-900">1. Our Commitment to Privacy</h2>
+            <h2>1. Our Commitment to Privacy</h2>
             <p>
               TradesFlow Inc. (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) is committed to protecting your personal information in accordance with the Personal Information Protection and Electronic Documents Act (PIPEDA) and applicable provincial privacy legislation. This policy explains how we collect, use, disclose, and protect your information when you use our field service management platform.
             </p>
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold text-gray-900">2. Accountability</h2>
+            <h2>2. Accountability</h2>
             <p>
               We are responsible for all personal information under our control. We have designated a Privacy Officer who is accountable for compliance with this policy. To contact our Privacy Officer, email{' '}
-              <a href="mailto:privacy@YOUR_DOMAIN" className="text-blue-600 hover:underline">privacy@YOUR_DOMAIN</a>.
+              <a href="mailto:privacy@tradesflow.app">privacy@tradesflow.app</a>.
             </p>
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold text-gray-900">3. What We Collect</h2>
+            <h2>3. What We Collect</h2>
             <p>We collect the following personal information:</p>
-            <ul className="list-disc pl-6 space-y-1">
+            <ul>
               <li><strong>Account information:</strong> Name, email address, and password (hashed) when you create an account.</li>
               <li><strong>Business information:</strong> Business name, phone number, and optional address details for your business profile.</li>
               <li><strong>Customer records:</strong> Names, phone numbers, email addresses, and service addresses of your customers, entered by you to manage appointments and service records.</li>
@@ -39,9 +32,9 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold text-gray-900">4. Purposes of Collection</h2>
+            <h2>4. Purposes of Collection</h2>
             <p>We collect your personal information for the following purposes:</p>
-            <ul className="list-disc pl-6 space-y-1">
+            <ul>
               <li>To provide and operate the TradesFlow field service management platform</li>
               <li>To create and manage your user account and business profile</li>
               <li>To send appointment confirmations and reminders to your customers (with their consent)</li>
@@ -53,10 +46,10 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold text-gray-900">5. Consent</h2>
+            <h2>5. Consent</h2>
             <p>
               We obtain your consent before collecting, using, or disclosing your personal information, except where required or permitted by law. When you create an account, you consent to this privacy policy. You may withdraw consent at any time by contacting us at{' '}
-              <a href="mailto:privacy@YOUR_DOMAIN" className="text-blue-600 hover:underline">privacy@YOUR_DOMAIN</a>, though this may limit our ability to provide certain services.
+              <a href="mailto:privacy@tradesflow.app">privacy@tradesflow.app</a>, though this may limit our ability to provide certain services.
             </p>
             <p>
               You are responsible for obtaining consent from your customers before entering their personal information into TradesFlow and before sending them any notifications through our platform.
@@ -64,9 +57,9 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold text-gray-900">6. How We Protect Your Information</h2>
+            <h2>6. How We Protect Your Information</h2>
             <p>We implement appropriate technical and organizational safeguards:</p>
-            <ul className="list-disc pl-6 space-y-1">
+            <ul>
               <li>Passwords are hashed using bcrypt with a cost factor of 12</li>
               <li>All data in transit is encrypted via TLS 1.2+</li>
               <li>Session tokens use secure, httpOnly cookies with SameSite protection</li>
@@ -77,9 +70,9 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold text-gray-900">7. Data Retention</h2>
+            <h2>7. Data Retention</h2>
             <p>We retain your personal information only as long as necessary:</p>
-            <ul className="list-disc pl-6 space-y-1">
+            <ul>
               <li><strong>Account data:</strong> Retained while your account is active and for 30 days after deletion request</li>
               <li><strong>Financial records:</strong> Invoices retained for 6 years as required by the Income Tax Act (Canada)</li>
               <li><strong>Service records:</strong> Retained for the duration of your account plus 1 year</li>
@@ -89,9 +82,9 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold text-gray-900">8. Your Rights</h2>
+            <h2>8. Your Rights</h2>
             <p>Under PIPEDA, you have the right to:</p>
-            <ul className="list-disc pl-6 space-y-1">
+            <ul>
               <li><strong>Access:</strong> Request a copy of all personal information we hold about you</li>
               <li><strong>Correction:</strong> Request correction of inaccurate or incomplete information</li>
               <li><strong>Deletion:</strong> Request deletion of your personal information, subject to legal retention requirements</li>
@@ -100,48 +93,40 @@ export default function PrivacyPolicyPage() {
             </ul>
             <p>
               To exercise any of these rights, contact{' '}
-              <a href="mailto:privacy@YOUR_DOMAIN" className="text-blue-600 hover:underline">privacy@YOUR_DOMAIN</a>{' '}
+              <a href="mailto:privacy@tradesflow.app">privacy@tradesflow.app</a>{' '}
               or visit your account settings. We will respond within 30 days.
             </p>
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold text-gray-900">9. Third-Party Disclosure</h2>
+            <h2>9. Third-Party Disclosure</h2>
             <p>
               We do not sell or rent your personal information. We may share data with service providers who assist in operating our platform (hosting, email delivery) under data processing agreements that require equivalent privacy protection. Your data is stored in Canada and is not transferred outside Canada without your consent.
             </p>
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold text-gray-900">10. Breach Notification</h2>
+            <h2>10. Breach Notification</h2>
             <p>
               In the event of a data breach that creates a real risk of significant harm, we will notify affected individuals and the Office of the Privacy Commissioner of Canada as required by the Breach of Security Safeguards Regulations.
             </p>
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold text-gray-900">11. Contact</h2>
+            <h2>11. Contact</h2>
             <p>
               For privacy questions, data access requests, or complaints:
             </p>
             <p>
               <strong>Privacy Officer</strong><br />
               TradesFlow Inc.<br />
-              Email: <a href="mailto:privacy@YOUR_DOMAIN" className="text-blue-600 hover:underline">privacy@YOUR_DOMAIN</a>
+              Email: <a href="mailto:privacy@tradesflow.app">privacy@tradesflow.app</a>
             </p>
             <p>
               To file a complaint with the Office of the Privacy Commissioner of Canada:<br />
-              <a href="https://www.priv.gc.ca" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">www.priv.gc.ca</a> | 1-800-282-1376
+              <a href="https://www.priv.gc.ca" target="_blank" rel="noopener noreferrer">www.priv.gc.ca</a> | 1-800-282-1376
             </p>
           </section>
-        </div>
-
-        <div className="mt-8 pt-6 border-t border-gray-200">
-          <Link href="/" className="text-blue-600 hover:text-blue-500">
-            &larr; Back to home
-          </Link>
-        </div>
-      </div>
-    </div>
+    </LegalShell>
   );
 }

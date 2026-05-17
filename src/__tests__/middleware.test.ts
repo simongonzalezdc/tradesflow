@@ -20,6 +20,13 @@ describe('Auth Middleware', () => {
         expect(isPublicRoute('/signup')).toBe(true);
       });
 
+      it('should return true for legal and auth error routes', () => {
+        expect(isPublicRoute('/privacy-policy')).toBe(true);
+        expect(isPublicRoute('/terms-of-service')).toBe(true);
+        expect(isPublicRoute('/cookie-policy')).toBe(true);
+        expect(isPublicRoute('/auth/error')).toBe(true);
+      });
+
       it('should return false for protected routes', () => {
         expect(isPublicRoute('/dashboard')).toBe(false);
         expect(isPublicRoute('/customers')).toBe(false);
@@ -86,6 +93,10 @@ describe('Auth Middleware', () => {
         expect(isProtectedRoute('/')).toBe(false);
         expect(isProtectedRoute('/login')).toBe(false);
         expect(isProtectedRoute('/signup')).toBe(false);
+      });
+
+      it('should return false for unknown routes so 404 can render', () => {
+        expect(isProtectedRoute('/missing-test-route')).toBe(false);
       });
     });
 
