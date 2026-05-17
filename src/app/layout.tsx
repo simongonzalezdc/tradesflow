@@ -3,7 +3,7 @@ import './globals.css';
 import { Providers } from '@/components/Providers';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://tradesflow.app'),
+  metadataBase: new URL('https://simongonzalezdc.github.io/tradesflow/'),
   title: {
     default: 'TradesFlow - Field service records, scheduling, and billing for trade teams',
     template: '%s - TradesFlow',
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     title: 'TradesFlow',
     description:
       'A focused field-service workspace for small trade teams that need cleaner records before the invoice goes out.',
-    url: 'https://tradesflow.app',
+    url: 'https://simongonzalezdc.github.io/tradesflow/',
     siteName: 'TradesFlow',
     type: 'website',
   },

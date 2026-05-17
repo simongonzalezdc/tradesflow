@@ -272,7 +272,7 @@ export default function Home() {
                 <div className="mt-auto pt-8">
                   {plan.name === 'Enterprise' ? (
                     <a
-                      href="mailto:hello@tradesflow.app"
+                      href="https://github.com/simongonzalezdc/tradesflow/issues"
                       className={`inline-flex w-full items-center justify-center rounded-md px-4 py-3 text-sm font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 active:translate-y-px ${
                         plan.featured
                           ? 'bg-white text-slate-950 hover:bg-slate-100'
@@ -323,7 +323,7 @@ export default function Home() {
             <Link href="/signup">
               <Button size="lg" variant="secondary" className="w-full sm:w-auto">Create account</Button>
             </Link>
-            <a href="mailto:hello@tradesflow.app" className="inline-flex items-center justify-center rounded-md border border-white/20 px-6 py-3 text-lg font-semibold text-white transition-all duration-300 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-slate-950 active:translate-y-px">
+            <a href="https://github.com/simongonzalezdc/tradesflow/issues" className="inline-flex items-center justify-center rounded-md border border-white/20 px-6 py-3 text-lg font-semibold text-white transition-all duration-300 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-slate-950 active:translate-y-px">
               Ask a question
             </a>
           </div>

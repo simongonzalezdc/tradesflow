@@ -64,7 +64,7 @@ export default function CookiePolicyPage() {
             <h2>Contact</h2>
             <p>
               Questions about our use of cookies? Contact{' '}
-              <a href="mailto:privacy@tradesflow.app">privacy@tradesflow.app</a>.
+              <a href="https://github.com/simongonzalezdc/tradesflow/issues">the project maintainer</a>.
             </p>
           </section>
     </LegalShell>

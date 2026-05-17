@@ -87,7 +87,7 @@ export default function TermsOfServicePage() {
             <h2>11. Contact</h2>
             <p>
               For questions about these terms, contact{' '}
-              <a href="mailto:legal@tradesflow.app">legal@tradesflow.app</a>.
+              <a href="https://github.com/simongonzalezdc/tradesflow/issues">the project maintainer</a>.
             </p>
           </section>
     </LegalShell>

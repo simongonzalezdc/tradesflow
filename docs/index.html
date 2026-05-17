@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TradesFlow - Field Service Records for Small Trade Teams</title>
+    <meta
+      name="description"
+      content="TradesFlow is a field-service operating system for small trade teams: customer records, scheduling, Equipment Passport, and billing handoffs."
+    />
+    <meta property="og:title" content="TradesFlow" />
+    <meta
+      property="og:description"
+      content="Field-service records that hold up after the job is done."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://simongonzalezdc.github.io/tradesflow/" />
+    <style>
+      :root {
+        --ink: #020617;
+        --muted: #475569;
+        --paper: #f7f4ee;
+        --white: #ffffff;
+        --line: #d8d5cd;
+        --amber: #f59e0b;
+        --amber-soft: #fef3c7;
+        --blue: #1d4ed8;
+        --green: #047857;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: "Avenir Next", "Satoshi", "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.5;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .wrap {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        border-bottom: 1px solid var(--line);
+        background: rgba(247, 244, 238, 0.94);
+        backdrop-filter: blur(14px);
+      }
+
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 18px 0;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+      }
+
+      .mark {
+        display: inline-flex;
+        width: 42px;
+        height: 42px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        background: var(--ink);
+        color: var(--white);
+      }
+
+      .brand-name {
+        display: block;
+        font-size: 1.12rem;
+        font-weight: 900;
+        letter-spacing: 0;
+        line-height: 1;
+      }
+
+      .brand-sub {
+        display: block;
+        margin-top: 5px;
+        color: #64748b;
+        font-size: 0.68rem;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        color: var(--muted);
+        font-size: 0.92rem;
+        font-weight: 700;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+      }
+
+      .button {
+        display: inline-flex;
+        min-height: 44px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        border: 1px solid var(--ink);
+        background: var(--ink);
+        color: var(--white);
+        padding: 11px 16px;
+        font-weight: 800;
+        text-decoration: none;
+        transition: transform 160ms ease, background 160ms ease;
+      }
+
+      .button:hover {
+        transform: translateY(-1px);
+      }
+
+      .button.secondary {
+        border-color: #cbd5e1;
+        background: var(--white);
+        color: var(--ink);
+      }
+
+      .hero {
+        padding: 84px 0 62px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 48px;
+        align-items: center;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        border: 1px solid #fcd34d;
+        border-radius: 7px;
+        background: var(--amber-soft);
+        color: #78350f;
+        padding: 6px 10px;
+        font-size: 0.72rem;
+        font-weight: 900;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        max-width: 780px;
+        margin-bottom: 22px;
+        font-size: clamp(3.2rem, 8vw, 6.5rem);
+        font-weight: 950;
+        letter-spacing: 0;
+        line-height: 0.92;
+      }
+
+      .hero-copy {
+        max-width: 650px;
+        color: var(--muted);
+        font-size: 1.13rem;
+        line-height: 1.72;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 30px;
+      }
+
+      .note {
+        margin-top: 16px;
+        color: #64748b;
+        font-size: 0.92rem;
+      }
+
+      .product {
+        border-radius: 12px;
+        background: var(--ink);
+        box-shadow: 0 40px 90px -55px rgba(2, 6, 23, 0.95);
+        padding: 12px;
+      }
+
+      .screen {
+        border-radius: 8px;
+        background: #fafaf8;
+        padding: 18px;
+      }
+
+      .screen-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        border-bottom: 1px solid #e2e8f0;
+        padding-bottom: 16px;
+      }
+
+      .screen h2 {
+        margin-bottom: 0;
+        font-size: 1.65rem;
+        letter-spacing: 0;
+      }
+
+      .counter {
+        border-radius: 8px;
+        background: var(--amber-soft);
+        color: #78350f;
+        padding: 8px 12px;
+        text-align: right;
+      }
+
+      .counter strong {
+        display: block;
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 1.28rem;
+        line-height: 1;
+      }
+
+      .mock-grid {
+        display: grid;
+        grid-template-columns: 0.95fr 1.05fr;
+        gap: 12px;
+        margin-top: 14px;
+      }
+
+      .job,
+      .passport,
+      .metric,
+      .card {
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+        background: var(--white);
+        padding: 14px;
+      }
+
+      .jobs {
+        display: grid;
+        gap: 10px;
+      }
+
+      .meta {
+        color: #64748b;
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 0.78rem;
+        font-weight: 800;
+      }
+
+      .status {
+        display: inline-flex;
+        border-radius: 6px;
+        background: #f1f5f9;
+        color: #475569;
+        padding: 4px 7px;
+        font-size: 0.72rem;
+        font-weight: 800;
+      }
+
+      .job-top {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .job h3,
+      .passport h3,
+      .card h3 {
+        margin: 12px 0 4px;
+        font-size: 1rem;
+      }
+
+      .job p,
+      .passport p,
+      .card p {
+        margin-bottom: 0;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .passport .tag {
+        color: var(--blue);
+        font-size: 0.72rem;
+        font-weight: 900;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .photos {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        margin: 16px 0;
+      }
+
+      .photo {
+        display: flex;
+        min-height: 76px;
+        align-items: end;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        background: #f1f5f9;
+        color: #64748b;
+        padding: 8px;
+        font-size: 0.72rem;
+        font-weight: 800;
+      }
+
+      .timeline {
+        display: grid;
+        gap: 10px;
+      }
+
+      .timeline div {
+        display: grid;
+        grid-template-columns: 84px 1fr;
+        gap: 10px;
+        border-top: 1px solid #f1f5f9;
+        padding-top: 10px;
+        font-size: 0.86rem;
+      }
+
+      .metrics {
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        background: var(--white);
+        padding: 28px 0;
+      }
+
+      .metric-grid,
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+      }
+
+      .metric strong {
+        display: block;
+        margin-top: 6px;
+        font-size: 2rem;
+        line-height: 1;
+      }
+
+      .section {
+        padding: 76px 0;
+      }
+
+      .section.dark {
+        background: var(--ink);
+        color: var(--white);
+      }
+
+      .section-head {
+        max-width: 720px;
+        margin-bottom: 28px;
+      }
+
+      .section h2 {
+        margin: 12px 0 14px;
+        font-size: clamp(2.4rem, 5vw, 4.4rem);
+        font-weight: 950;
+        letter-spacing: 0;
+        line-height: 0.96;
+      }
+
+      .section-head p {
+        color: var(--muted);
+        font-size: 1.03rem;
+      }
+
+      .dark .section-head p,
+      .dark .card p {
+        color: #cbd5e1;
+      }
+
+      .dark .card {
+        border-color: rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.06);
+      }
+
+      .dark .card h3 {
+        color: var(--white);
+      }
+
+      .card-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .card h3 {
+        margin-top: 0;
+        font-size: 1.25rem;
+      }
+
+      .footer {
+        background: var(--ink);
+        color: #cbd5e1;
+        padding: 42px 0;
+      }
+
+      .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        padding-top: 24px;
+        font-size: 0.9rem;
+      }
+
+      .footer a {
+        color: var(--white);
+        font-weight: 800;
+      }
+
+      @media (max-width: 860px) {
+        .nav-links {
+          display: none;
+        }
+
+        .hero-grid,
+        .mock-grid,
+        .metric-grid,
+        .card-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          padding-top: 54px;
+        }
+
+        .footer-inner {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="nav">
+      <div class="wrap nav-inner">
+        <a class="brand" href="#top" aria-label="TradesFlow home">
+          <span class="mark" aria-hidden="true">
+            <svg width="25" height="25" viewBox="0 0 32 32" fill="none">
+              <path d="M7 9.5h18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" />
+              <path d="M7 16h12" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" />
+              <path d="M7 22.5h18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" />
+              <path d="M23.5 13.5 27 17l-3.5 3.5" stroke="#f59e0b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+          <span>
+            <span class="brand-name">TradesFlow</span>
+            <span class="brand-sub">Field service OS</span>
+          </span>
+        </a>
+        <nav class="nav-links" aria-label="Primary">
+          <a href="#workflow">Workflow</a>
+          <a href="#equipment">Equipment</a>
+          <a href="#roadmap">Roadmap</a>
+          <a href="#repo">Repository</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="wrap hero-grid">
+          <div>
+            <span class="eyebrow">Built for small trade teams</span>
+            <h1>Field service records that hold up after the job is done.</h1>
+            <p class="hero-copy">
+              TradesFlow is a focused operating workspace for customers, scheduled work,
+              equipment history, service notes, and billing handoffs. No enterprise maze.
+              No mystery pricing. Just the record straight before the invoice goes out.
+            </p>
+            <div class="hero-actions">
+              <a class="button" href="https://github.com/simongonzalezdc/tradesflow">View the repository</a>
+              <a class="button secondary" href="#workflow">See the workflow</a>
+            </div>
+            <p class="note">Core account foundations are live in the repo; operational modules are rolling out through 2026.</p>
+          </div>
+
+          <div class="product" aria-label="TradesFlow product preview">
+            <div class="screen">
+              <div class="screen-head">
+                <div>
+                  <span class="meta">TODAY</span>
+                  <h2>Service board</h2>
+                </div>
+                <div class="counter"><strong>7</strong><span>open jobs</span></div>
+              </div>
+              <div class="mock-grid">
+                <div class="jobs">
+                  <article class="job">
+                    <div class="job-top"><span class="meta">08:30</span><span class="status">Confirmed</span></div>
+                    <h3>Northline HVAC</h3>
+                    <p>AC diagnostic</p>
+                  </article>
+                  <article class="job">
+                    <div class="job-top"><span class="meta">10:15</span><span class="status">In progress</span></div>
+                    <h3>Harbor Electric</h3>
+                    <p>Panel inspection</p>
+                  </article>
+                  <article class="job">
+                    <div class="job-top"><span class="meta">13:40</span><span class="status">Needs invoice</span></div>
+                    <h3>Cedar Roofworks</h3>
+                    <p>Follow-up quote</p>
+                  </article>
+                </div>
+                <article class="passport">
+                  <span class="tag">Equipment Passport</span>
+                  <h3>Rooftop unit RTU-04</h3>
+                  <p>Model: TRN-XR90 - Serial: 4C9-28A</p>
+                  <div class="photos">
+                    <div class="photo">Nameplate</div>
+                    <div class="photo">Install</div>
+                    <div class="photo">Condition</div>
+                  </div>
+                  <div class="timeline">
+                    <div><span class="meta">2026-05</span><span>Condenser fan replaced. Warranty note attached.</span></div>
+                    <div><span class="meta">2025-10</span><span>Seasonal maintenance completed.</span></div>
+                    <div><span class="meta">2024-11</span><span>Initial record created from installation invoice.</span></div>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="metrics">
+        <div class="wrap metric-grid">
+          <div class="metric"><span>trial before billing</span><strong>14 days</strong></div>
+          <div class="metric"><span>professional plan</span><strong>$79</strong></div>
+          <div class="metric"><span>per-user fees</span><strong>0</strong></div>
+          <div class="metric"><span>core rollout</span><strong>2026</strong></div>
+        </div>
+      </section>
+
+      <section id="workflow" class="section">
+        <div class="wrap">
+          <div class="section-head">
+            <span class="eyebrow">Operating flow</span>
+            <h2>From first call to paid invoice, one record keeps moving.</h2>
+            <p>The product is designed around the practical path a small field-service team repeats every day.</p>
+          </div>
+          <div class="card-grid">
+            <article class="card"><h3>Capture the caller</h3><p>Create the customer, service address, notes, and known equipment before the request becomes another loose paper trail.</p></article>
+            <article class="card"><h3>Schedule the work</h3><p>Assign the appointment, status, technician, duration, and customer reminders from the same operating record.</p></article>
+            <article class="card"><h3>Bill cleanly</h3><p>Turn completed work into invoices, track paid and overdue status, and keep the admin handoff visible.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="equipment" class="section dark">
+        <div class="wrap">
+          <div class="section-head">
+            <span class="eyebrow">Signature module</span>
+            <h2>Equipment Passport makes service history visible.</h2>
+            <p>Repeat service should not depend on memory, texts, or old invoices. The asset record stays close to the work.</p>
+          </div>
+          <div class="card-grid">
+            <article class="card"><h3>Customer record</h3><p>Connect contact details, service addresses, appointments, invoices, equipment, and notes.</p></article>
+            <article class="card"><h3>Scheduling</h3><p>Keep status, assignment, duration, confirmations, no-shows, and reminders visible.</p></article>
+            <article class="card"><h3>Billing handoff</h3><p>Reduce the gap between completed work and money collected.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="roadmap" class="section">
+        <div class="wrap">
+          <div class="section-head">
+            <span class="eyebrow">Truthful roadmap</span>
+            <h2>Clear enough for a serious buyer to trust the path.</h2>
+            <p>TradesFlow separates the live account foundation, active operational build, and later integrations.</p>
+          </div>
+          <div class="card-grid">
+            <article class="card"><h3>Live foundation</h3><p>Authentication, account setup, business profile creation, privacy consent, and protected routes are in place.</p></article>
+            <article class="card"><h3>In active development</h3><p>Customer management, scheduling, invoicing, Equipment Passport, notifications, and team management.</p></article>
+            <article class="card"><h3>Planned integrations</h3><p>Payments, online booking, QuickBooks sync, API access, and inventory after the workflow proves itself.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="repo" class="section">
+        <div class="wrap">
+          <div class="section-head">
+            <span class="eyebrow">Repository</span>
+            <h2>Built in the open for collaborators and early signal.</h2>
+            <p>The repository is public so interested trades operators, collaborators, and technical partners can inspect the product direction.</p>
+          </div>
+          <a class="button" href="https://github.com/simongonzalezdc/tradesflow">Open TradesFlow on GitHub</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap footer-inner">
+        <span>TradesFlow - field-service records for small trade teams.</span>
+        <a href="https://github.com/simongonzalezdc/tradesflow">github.com/simongonzalezdc/tradesflow</a>
+      </div>
+    </footer>
+  </body>
+</html>

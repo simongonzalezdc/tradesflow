@@ -13,8 +13,8 @@ export default function PrivacyPolicyPage() {
           <section>
             <h2>2. Accountability</h2>
             <p>
-              We are responsible for all personal information under our control. We have designated a Privacy Officer who is accountable for compliance with this policy. To contact our Privacy Officer, email{' '}
-              <a href="mailto:privacy@tradesflow.app">privacy@tradesflow.app</a>.
+              We are responsible for all personal information under our control. We have designated a Privacy Officer who is accountable for compliance with this policy. Until a dedicated support inbox is configured, contact the project maintainer through{' '}
+              <a href="https://github.com/simongonzalezdc/tradesflow/issues">GitHub Issues</a>.
             </p>
           </section>
 
@@ -48,8 +48,8 @@ export default function PrivacyPolicyPage() {
           <section>
             <h2>5. Consent</h2>
             <p>
-              We obtain your consent before collecting, using, or disclosing your personal information, except where required or permitted by law. When you create an account, you consent to this privacy policy. You may withdraw consent at any time by contacting us at{' '}
-              <a href="mailto:privacy@tradesflow.app">privacy@tradesflow.app</a>, though this may limit our ability to provide certain services.
+              We obtain your consent before collecting, using, or disclosing your personal information, except where required or permitted by law. When you create an account, you consent to this privacy policy. You may withdraw consent at any time by contacting the project maintainer through{' '}
+              <a href="https://github.com/simongonzalezdc/tradesflow/issues">GitHub Issues</a>, though this may limit our ability to provide certain services.
             </p>
             <p>
               You are responsible for obtaining consent from your customers before entering their personal information into TradesFlow and before sending them any notifications through our platform.
@@ -93,7 +93,7 @@ export default function PrivacyPolicyPage() {
             </ul>
             <p>
               To exercise any of these rights, contact{' '}
-              <a href="mailto:privacy@tradesflow.app">privacy@tradesflow.app</a>{' '}
+              <a href="https://github.com/simongonzalezdc/tradesflow/issues">the project maintainer</a>{' '}
               or visit your account settings. We will respond within 30 days.
             </p>
           </section>
@@ -120,7 +120,7 @@ export default function PrivacyPolicyPage() {
             <p>
               <strong>Privacy Officer</strong><br />
               TradesFlow Inc.<br />
-              Email: <a href="mailto:privacy@tradesflow.app">privacy@tradesflow.app</a>
+              Contact: <a href="https://github.com/simongonzalezdc/tradesflow/issues">GitHub Issues</a>
             </p>
             <p>
               To file a complaint with the Office of the Privacy Commissioner of Canada:<br />

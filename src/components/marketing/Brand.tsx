@@ -70,7 +70,7 @@ export function MarketingFooter() {
           <FooterGroup title="Account">
             <Link href="/signup">Create account</Link>
             <Link href="/login">Sign in</Link>
-            <a href="mailto:hello@tradesflow.app">Contact</a>
+            <a href="https://github.com/simongonzalezdc/tradesflow/issues">Contact</a>
           </FooterGroup>
           <FooterGroup title="Legal">
             <Link href="/privacy-policy">Privacy</Link>
