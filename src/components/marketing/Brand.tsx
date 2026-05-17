@@ -39,9 +39,9 @@ export function BrandLockup({
     <Link href={href} className="group inline-flex items-center gap-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2">
       <BrandMark className={tone === 'dark' ? 'bg-white text-slate-950' : undefined} />
       <span className="leading-none">
-        <span className={cn('block text-lg font-black tracking-[-0.02em]', textClass)}>TradesFlow</span>
+        <span className={cn('block text-lg font-black tracking-normal', textClass)}>TradesFlow</span>
         {!compact && (
-          <span className={cn('mt-1 block text-[0.68rem] font-bold uppercase tracking-[0.22em]', subTextClass)}>
+          <span className={cn('mt-1 block text-[0.68rem] font-bold uppercase tracking-normal', subTextClass)}>
             Field service OS
           </span>
         )}
@@ -57,20 +57,20 @@ export function MarketingFooter() {
         <div>
           <BrandLockup tone="dark" />
           <p className="mt-5 max-w-xl text-sm leading-6">
-            Field service management for trade businesses that need cleaner customer records,
-            scheduled work, equipment history, and billing handoffs without enterprise bloat.
+            Portfolio prototype for inspection-heavy service businesses that need cleaner customer
+            records, equipment history, service notes, deficiencies, and billing handoffs.
           </p>
         </div>
         <nav className="grid gap-8 text-sm sm:grid-cols-3" aria-label="Footer">
           <FooterGroup title="Product">
             <Link href="/#workflow">Workflow</Link>
             <Link href="/#equipment">Equipment records</Link>
-            <Link href="/#pricing">Pricing</Link>
+            <Link href="/#fit">Problem fit</Link>
           </FooterGroup>
           <FooterGroup title="Account">
-            <Link href="/signup">Create account</Link>
+            <Link href="/signup">Open prototype</Link>
             <Link href="/login">Sign in</Link>
-            <a href="https://github.com/simongonzalezdc/tradesflow/issues">Contact</a>
+            <a href="https://github.com/simongonzalezdc/tradesflow">Repository</a>
           </FooterGroup>
           <FooterGroup title="Legal">
             <Link href="/privacy-policy">Privacy</Link>
@@ -81,7 +81,7 @@ export function MarketingFooter() {
       </div>
       <div className="mx-auto mt-10 flex max-w-7xl flex-col gap-3 border-t border-white/10 pt-6 text-xs sm:flex-row sm:items-center sm:justify-between">
         <p>Copyright {new Date().getFullYear()} TradesFlow. All rights reserved.</p>
-        <p>Built for small trade teams that need the record straight before the invoice goes out.</p>
+        <p>Built to show the workflow clearly before promising production software.</p>
       </div>
     </footer>
   );
@@ -90,7 +90,7 @@ export function MarketingFooter() {
 function FooterGroup({ title, children }: { title: string; children: ReactNode }) {
   return (
     <div>
-      <h2 className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-white">{title}</h2>
+      <h2 className="mb-3 text-xs font-bold uppercase tracking-normal text-white">{title}</h2>
       <div className="flex flex-col gap-2 [&_a]:text-slate-400 [&_a]:transition-colors [&_a:hover]:text-white">
         {children}
       </div>

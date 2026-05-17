@@ -1,6 +1,49 @@
 # TradesFlow
 
-Field service management platform for Canadian trades businesses. Scheduling, invoicing, customer management, equipment tracking, and notifications — built for HVAC, plumbing, electrical, and other trades.
+TradesFlow is a portfolio prototype for inspection-heavy field-service businesses: customer records, scheduled work, equipment history, service notes, deficiencies, and billing handoffs in one focused workspace.
+
+The current public posture is intentionally honest. This is not being presented as a production SaaS with customers, published plans, or finished integrations. It is a working product foundation and a visualizable direction for small operators who need better operational memory before work turns into invoices.
+
+Public brief: https://simongonzalezdc.github.io/tradesflow/
+
+## Why It Exists
+
+Small service teams often run on a messy chain of calls, texts, spreadsheets, photos, invoices, and memory. That gets especially painful when the work is recurring or inspection-driven: the team needs to know what was found, what was fixed, what still needs follow-up, and what should become a billable handoff.
+
+TradesFlow explores a simpler operating record:
+
+- Capture the caller, customer, site, and known equipment.
+- Schedule the work and keep job status visible.
+- Record service notes, photos, deficiencies, and asset history.
+- Hand clean operational context to billing or accounting.
+
+## Example Fit
+
+The strongest visualization lane is fire and life-safety service work because those operators live with recurring inspections, deficiencies, service history, compliance-sensitive documentation, and QuickBooks-style accounting handoffs.
+
+That does not mean TradesFlow is tailored to one prospect or one company. Fire protection is the clearest example of the problem shape; the underlying workflow also applies to other inspection-heavy service businesses.
+
+## Current State
+
+Live in the repository:
+
+- Public GitHub Pages landing page.
+- Next.js App Router application shell.
+- Credentials-based authentication with JWT sessions.
+- Signup/login flow and business profile creation.
+- Protected route middleware for app areas.
+- Prisma domain model for users, businesses, customers, appointments, invoices, equipment, service history, notifications, consent records, and audit logs.
+- Data export and account deletion endpoints.
+- Privacy, terms, and cookie pages for the prototype surface.
+
+Prototype / planned next:
+
+- Customer management UI.
+- Scheduling board connected to real appointment data.
+- Equipment Passport UI for model, serial, location, photos, service history, and deficiencies.
+- Inspection and deficiency workflow for report-ready service records.
+- Invoice handoff and QuickBooks-style accounting integration.
+- Notifications and reminders.
 
 ## Tech Stack
 
@@ -18,13 +61,13 @@ Field service management platform for Canadian trades businesses. Scheduling, in
 
 ## Project Structure
 
-```
+```text
 src/
 ├── app/
 │   ├── (auth)/              # Auth pages (login, signup)
 │   ├── api/
-│   │   └── auth/            # NextAuth routes + registration
-│   │   └── user/            # Data export & deletion (PIPEDA)
+│   │   ├── auth/            # NextAuth routes + registration
+│   │   └── user/            # Data export & deletion
 │   ├── auth/error/          # Auth error page
 │   ├── privacy-policy/      # Privacy policy page
 │   ├── terms-of-service/    # Terms of service page
@@ -33,19 +76,20 @@ src/
 │   └── page.tsx             # Landing page
 ├── components/
 │   ├── Providers.tsx        # Client-side session provider
+│   ├── marketing/           # Public brand, auth, and legal shells
 │   └── ui/                  # Button, Input components
 ├── lib/
 │   ├── auth/
-│   │   ├── config.ts        # NextAuth options (providers, callbacks, cookies)
+│   │   ├── config.ts        # NextAuth options
 │   │   └── route-guards.ts  # Public/protected/auth route definitions
 │   ├── db/
 │   │   └── client.ts        # Prisma client singleton
 │   ├── rate-limit.ts        # In-memory rate limiter
 │   └── utils/
 │       └── cn.ts            # Tailwind class merge utility
-├── middleware.ts             # Auth middleware (route protection)
+├── middleware.ts            # Auth middleware
 ├── types/
-│   ├── next-auth.d.ts       # Extended session types (businessId, role)
+│   ├── next-auth.d.ts       # Extended session types
 │   └── jest-dom.d.ts        # jest-dom type declarations
 └── generated/
     └── prisma/              # Generated Prisma client
@@ -53,19 +97,31 @@ src/
 
 ## Data Model
 
-13 models covering the full field service lifecycle:
+13 models covering the field-service operating record:
 
-- **User** — accounts with roles (OWNER, TECHNICIAN, ADMIN), linked to a Business
-- **Business** — company profile with slug, phone, timezone, branding
-- **Customer** — client records with contact info and address
-- **Appointment** — scheduled visits with status tracking and confirmation codes
-- **Invoice / InvoiceItem** — billing with draft/sent/paid/overdue lifecycle
-- **Equipment** — the Equipment Passport (brand, model, serial, warranty, photos)
-- **ServiceHistory** — maintenance records tied to equipment and appointments
-- **PriceBookItem** — standardized service pricing per business
-- **Notification** — reminder/confirmation/follow-up message queue
-- **Consent** — PIPEDA consent records with timestamp, version, IP, user agent
-- **AuditLog** — data access tracking for compliance
+- **User** - accounts with roles (OWNER, TECHNICIAN, ADMIN), linked to a Business
+- **Business** - company profile with slug, phone, timezone, and branding
+- **Customer** - client records with contact info and address
+- **Appointment** - scheduled visits with status tracking and confirmation codes
+- **Invoice / InvoiceItem** - billing with draft/sent/paid/overdue lifecycle
+- **Equipment** - the Equipment Passport for brand, model, serial, warranty, and photos
+- **ServiceHistory** - maintenance records tied to equipment and appointments
+- **PriceBookItem** - standardized service catalog entries per business
+- **Notification** - reminder, confirmation, and follow-up message queue
+- **Consent** - privacy consent records with timestamp, version, IP, and user agent
+- **AuditLog** - data access tracking
+
+## Privacy And Trust Foundation
+
+TradesFlow has the beginnings of a privacy-aware account foundation:
+
+- **Consent tracking** - signup records consent with IP, user agent, version, and timestamp.
+- **Data rights endpoints** - API endpoints for data export and account deletion.
+- **Audit logging model** - AuditLog is available for future operational visibility.
+- **Security safeguards** - bcrypt password hashing, secure cookies, CSP headers, HSTS, and rate limiting.
+- **Legal pages** - privacy, terms, and cookie pages are present for the prototype surface.
+
+This is not a legal certification or a production compliance claim. Any real deployment would need jurisdiction-specific legal review, hosting review, and operator-specific policies before handling live customer records.
 
 ## Getting Started
 
@@ -78,24 +134,14 @@ src/
 ### Setup
 
 ```bash
-# Install dependencies
 npm install
-
-# Set up environment variables
 cp .env.example .env
-# Edit .env with your DATABASE_URL and NEXTAUTH_SECRET
-
-# Generate Prisma client
 npm run db:generate
-
-# Push schema to database (dev)
 npm run db:push
-
-# Run the dev server
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open http://localhost:3000.
 
 ### Environment Variables
 
@@ -120,17 +166,6 @@ Open [http://localhost:3000](http://localhost:3000).
 | `npm run db:push` | Push schema changes to DB |
 | `npm run db:migrate` | Create and run migrations |
 | `npm run db:studio` | Open Prisma Studio |
-
-## PIPEDA Compliance
-
-TradesFlow is designed for compliance with Canada's Personal Information Protection and Electronic Documents Act:
-
-- **Consent tracking** — every signup records consent with IP, user agent, version, and timestamp
-- **Data subject rights** — API endpoints for data export and account deletion
-- **Audit logging** — AuditLog model tracks access to personal data
-- **Security safeguards** — bcrypt password hashing, secure cookies, TLS, CSP headers, HSTS, rate limiting
-- **Legal pages** — privacy policy, terms of service, cookie policy covering all 10 PIPEDA principles
-- **Data residency** — database hosted in Canada, no cross-border transfers without consent
 
 ## Route Protection
 

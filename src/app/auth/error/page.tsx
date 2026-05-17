@@ -25,8 +25,8 @@ function ErrorContent() {
         <div className="flex justify-center">
           <BrandLockup compact />
         </div>
-        <p className="mt-10 text-xs font-black uppercase tracking-[0.22em] text-amber-700">Account access</p>
-        <h1 className="mt-4 text-4xl font-black tracking-[-0.05em] text-slate-950">Authentication error</h1>
+        <p className="mt-10 text-xs font-black uppercase tracking-normal text-amber-700">Account access</p>
+        <h1 className="mt-4 text-4xl font-black tracking-normal text-slate-950">Authentication error</h1>
         <p className="mx-auto mt-4 max-w-sm text-sm leading-6 text-slate-600">{message}</p>
         <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
           <Link href="/login">

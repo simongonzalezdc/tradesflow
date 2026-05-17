@@ -3,15 +3,15 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>TradesFlow - Field Service Records for Small Trade Teams</title>
+    <title>TradesFlow - Portfolio Prototype for Inspection-Heavy Field Service</title>
     <meta
       name="description"
-      content="TradesFlow is a field-service operating system for small trade teams: customer records, scheduling, Equipment Passport, and billing handoffs."
+      content="TradesFlow is a portfolio prototype for inspection-heavy field-service operators: customer records, equipment history, deficiencies, service notes, and billing handoffs."
     />
     <meta property="og:title" content="TradesFlow" />
     <meta
       property="og:description"
-      content="Field-service records that hold up after the job is done."
+      content="A portfolio prototype for field-service records that hold up after the job is done."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://simongonzalezdc.github.io/tradesflow/" />
@@ -25,7 +25,6 @@
         --amber: #f59e0b;
         --amber-soft: #fef3c7;
         --blue: #1d4ed8;
-        --green: #047857;
       }
 
       * {
@@ -79,7 +78,7 @@
         height: 42px;
         align-items: center;
         justify-content: center;
-        border-radius: 10px;
+        border-radius: 8px;
         background: var(--ink);
         color: var(--white);
       }
@@ -98,7 +97,7 @@
         color: #64748b;
         font-size: 0.68rem;
         font-weight: 800;
-        letter-spacing: 0.18em;
+        letter-spacing: 0;
         text-transform: uppercase;
       }
 
@@ -160,7 +159,7 @@
         padding: 6px 10px;
         font-size: 0.72rem;
         font-weight: 900;
-        letter-spacing: 0.16em;
+        letter-spacing: 0;
         text-transform: uppercase;
       }
 
@@ -174,10 +173,10 @@
       h1 {
         max-width: 780px;
         margin-bottom: 22px;
-        font-size: clamp(3.2rem, 8vw, 6.5rem);
+        font-size: 5.5rem;
         font-weight: 950;
         letter-spacing: 0;
-        line-height: 0.92;
+        line-height: 0.96;
       }
 
       .hero-copy {
@@ -201,7 +200,7 @@
       }
 
       .product {
-        border-radius: 12px;
+        border-radius: 8px;
         background: var(--ink);
         box-shadow: 0 40px 90px -55px rgba(2, 6, 23, 0.95);
         padding: 12px;
@@ -255,7 +254,7 @@
       .metric,
       .card {
         border: 1px solid #e2e8f0;
-        border-radius: 10px;
+        border-radius: 8px;
         background: var(--white);
         padding: 14px;
       }
@@ -307,7 +306,7 @@
         color: var(--blue);
         font-size: 0.72rem;
         font-weight: 900;
-        letter-spacing: 0.14em;
+        letter-spacing: 0;
         text-transform: uppercase;
       }
 
@@ -382,10 +381,10 @@
 
       .section h2 {
         margin: 12px 0 14px;
-        font-size: clamp(2.4rem, 5vw, 4.4rem);
+        font-size: 4rem;
         font-weight: 950;
         letter-spacing: 0;
-        line-height: 0.96;
+        line-height: 0.98;
       }
 
       .section-head p {
@@ -448,6 +447,14 @@
           grid-template-columns: 1fr;
         }
 
+        h1 {
+          font-size: 3.15rem;
+        }
+
+        .section h2 {
+          font-size: 2.55rem;
+        }
+
         .hero {
           padding-top: 54px;
         }
@@ -478,7 +485,7 @@
         <nav class="nav-links" aria-label="Primary">
           <a href="#workflow">Workflow</a>
           <a href="#equipment">Equipment</a>
-          <a href="#roadmap">Roadmap</a>
+          <a href="#fit">Fit</a>
           <a href="#repo">Repository</a>
         </nav>
       </div>
@@ -488,18 +495,19 @@
       <section class="hero">
         <div class="wrap hero-grid">
           <div>
-            <span class="eyebrow">Built for small trade teams</span>
+            <span class="eyebrow">Portfolio prototype for inspection-heavy field service</span>
             <h1>Field service records that hold up after the job is done.</h1>
             <p class="hero-copy">
-              TradesFlow is a focused operating workspace for customers, scheduled work,
-              equipment history, service notes, and billing handoffs. No enterprise maze.
-              No mystery pricing. Just the record straight before the invoice goes out.
+              TradesFlow helps operators visualize a cleaner workspace for customers,
+              scheduled work, equipment history, service notes, deficiencies, and billing
+              handoffs. It is presented honestly as a working portfolio foundation, not a
+              fake launched SaaS.
             </p>
             <div class="hero-actions">
               <a class="button" href="https://github.com/simongonzalezdc/tradesflow">View the repository</a>
-              <a class="button secondary" href="#workflow">See the workflow</a>
+              <a class="button secondary" href="#fit">See where it fits</a>
             </div>
-            <p class="note">Core account foundations are live in the repo; operational modules are rolling out through 2026.</p>
+            <p class="note">Account setup is live. The deeper workflow is the product direction to validate with serious operators.</p>
           </div>
 
           <div class="product" aria-label="TradesFlow product preview">
@@ -509,39 +517,39 @@
                   <span class="meta">TODAY</span>
                   <h2>Service board</h2>
                 </div>
-                <div class="counter"><strong>7</strong><span>open jobs</span></div>
+                <div class="counter"><strong>7</strong><span>open items</span></div>
               </div>
               <div class="mock-grid">
                 <div class="jobs">
                   <article class="job">
                     <div class="job-top"><span class="meta">08:30</span><span class="status">Confirmed</span></div>
-                    <h3>Northline HVAC</h3>
-                    <p>AC diagnostic</p>
+                    <h3>Maple Ridge Apartments</h3>
+                    <p>Annual sprinkler inspection</p>
                   </article>
                   <article class="job">
                     <div class="job-top"><span class="meta">10:15</span><span class="status">In progress</span></div>
-                    <h3>Harbor Electric</h3>
-                    <p>Panel inspection</p>
+                    <h3>Harbor Market</h3>
+                    <p>Extinguisher service</p>
                   </article>
                   <article class="job">
-                    <div class="job-top"><span class="meta">13:40</span><span class="status">Needs invoice</span></div>
-                    <h3>Cedar Roofworks</h3>
-                    <p>Follow-up quote</p>
+                    <div class="job-top"><span class="meta">13:40</span><span class="status">Quote needed</span></div>
+                    <h3>Cedar Street Offices</h3>
+                    <p>Alarm panel follow-up</p>
                   </article>
                 </div>
                 <article class="passport">
                   <span class="tag">Equipment Passport</span>
-                  <h3>Rooftop unit RTU-04</h3>
-                  <p>Model: TRN-XR90 - Serial: 4C9-28A</p>
+                  <h3>Sprinkler riser SR-01</h3>
+                  <p>Model: VK-QR - Serial: SR1-28A</p>
                   <div class="photos">
                     <div class="photo">Nameplate</div>
-                    <div class="photo">Install</div>
+                    <div class="photo">Valve tag</div>
                     <div class="photo">Condition</div>
                   </div>
                   <div class="timeline">
-                    <div><span class="meta">2026-05</span><span>Condenser fan replaced. Warranty note attached.</span></div>
-                    <div><span class="meta">2025-10</span><span>Seasonal maintenance completed.</span></div>
-                    <div><span class="meta">2024-11</span><span>Initial record created from installation invoice.</span></div>
+                    <div><span class="meta">2026-05</span><span>Annual inspection completed. Deficiency note attached.</span></div>
+                    <div><span class="meta">2025-10</span><span>Pressure gauge replaced and tagged for follow-up.</span></div>
+                    <div><span class="meta">2024-11</span><span>Initial asset record created from prior service invoice.</span></div>
                   </div>
                 </article>
               </div>
@@ -552,10 +560,10 @@
 
       <section class="metrics">
         <div class="wrap metric-grid">
-          <div class="metric"><span>trial before billing</span><strong>14 days</strong></div>
-          <div class="metric"><span>professional plan</span><strong>$79</strong></div>
-          <div class="metric"><span>per-user fees</span><strong>0</strong></div>
-          <div class="metric"><span>core rollout</span><strong>2026</strong></div>
+          <div class="metric"><span>prototype posture</span><strong>Portfolio</strong></div>
+          <div class="metric"><span>account foundation</span><strong>Live</strong></div>
+          <div class="metric"><span>example lane</span><strong>Inspection</strong></div>
+          <div class="metric"><span>billing handoff</span><strong>Planned</strong></div>
         </div>
       </section>
 
@@ -563,13 +571,13 @@
         <div class="wrap">
           <div class="section-head">
             <span class="eyebrow">Operating flow</span>
-            <h2>From first call to paid invoice, one record keeps moving.</h2>
-            <p>The product is designed around the practical path a small field-service team repeats every day.</p>
+            <h2>From first call to clean handoff, one record keeps moving.</h2>
+            <p>The product direction follows the practical path an inspection-heavy service team repeats every day.</p>
           </div>
           <div class="card-grid">
-            <article class="card"><h3>Capture the caller</h3><p>Create the customer, service address, notes, and known equipment before the request becomes another loose paper trail.</p></article>
-            <article class="card"><h3>Schedule the work</h3><p>Assign the appointment, status, technician, duration, and customer reminders from the same operating record.</p></article>
-            <article class="card"><h3>Bill cleanly</h3><p>Turn completed work into invoices, track paid and overdue status, and keep the admin handoff visible.</p></article>
+            <article class="card"><h3>Capture the site</h3><p>Create the customer, service address, caller notes, and known equipment before the request disappears into texts and memory.</p></article>
+            <article class="card"><h3>Record the findings</h3><p>Attach service notes, photos, deficiencies, warranty dates, and asset history so the next visit starts with context.</p></article>
+            <article class="card"><h3>Hand off to billing</h3><p>Turn completed work and unresolved findings into a clean admin handoff instead of a reconstruction job.</p></article>
           </div>
         </div>
       </section>
@@ -582,24 +590,24 @@
             <p>Repeat service should not depend on memory, texts, or old invoices. The asset record stays close to the work.</p>
           </div>
           <div class="card-grid">
-            <article class="card"><h3>Customer record</h3><p>Connect contact details, service addresses, appointments, invoices, equipment, and notes.</p></article>
-            <article class="card"><h3>Scheduling</h3><p>Keep status, assignment, duration, confirmations, no-shows, and reminders visible.</p></article>
+            <article class="card"><h3>Customer record</h3><p>Connect contact details, service addresses, visits, invoices, equipment, and notes.</p></article>
+            <article class="card"><h3>Inspection work</h3><p>Make recurring inspections, deficiencies, photos, and follow-ups visible in one place.</p></article>
             <article class="card"><h3>Billing handoff</h3><p>Reduce the gap between completed work and money collected.</p></article>
           </div>
         </div>
       </section>
 
-      <section id="roadmap" class="section">
+      <section id="fit" class="section">
         <div class="wrap">
           <div class="section-head">
-            <span class="eyebrow">Truthful roadmap</span>
-            <h2>Clear enough for a serious buyer to trust the path.</h2>
-            <p>TradesFlow separates the live account foundation, active operational build, and later integrations.</p>
+            <span class="eyebrow">Problem fit</span>
+            <h2>The best conversations are about admin pain, not AI for its own sake.</h2>
+            <p>TradesFlow is a way to show operators how their existing work could become more organized without replacing their craft, judgment, or customer relationships.</p>
           </div>
           <div class="card-grid">
-            <article class="card"><h3>Live foundation</h3><p>Authentication, account setup, business profile creation, privacy consent, and protected routes are in place.</p></article>
-            <article class="card"><h3>In active development</h3><p>Customer management, scheduling, invoicing, Equipment Passport, notifications, and team management.</p></article>
-            <article class="card"><h3>Planned integrations</h3><p>Payments, online booking, QuickBooks sync, API access, and inventory after the workflow proves itself.</p></article>
+            <article class="card"><h3>Recurring inspection businesses</h3><p>They need durable site history, technician notes, equipment records, deficiencies, and follow-up visibility.</p></article>
+            <article class="card"><h3>Small operators with admin drag</h3><p>They lose margin when completed field work has to be reconstructed later for billing or customer updates.</p></article>
+            <article class="card"><h3>Design partners</h3><p>The right conversation is about shaping a serious workflow from a credible prototype, not selling a finished platform that does not exist yet.</p></article>
           </div>
         </div>
       </section>
@@ -609,7 +617,7 @@
           <div class="section-head">
             <span class="eyebrow">Repository</span>
             <h2>Built in the open for collaborators and early signal.</h2>
-            <p>The repository is public so interested trades operators, collaborators, and technical partners can inspect the product direction.</p>
+            <p>The repository is public so interested operators, collaborators, and technical partners can inspect the product direction and current implementation.</p>
           </div>
           <a class="button" href="https://github.com/simongonzalezdc/tradesflow">Open TradesFlow on GitHub</a>
         </div>
@@ -618,7 +626,7 @@
 
     <footer class="footer">
       <div class="wrap footer-inner">
-        <span>TradesFlow - field-service records for small trade teams.</span>
+        <span>TradesFlow - portfolio prototype for inspection-heavy field service.</span>
         <a href="https://github.com/simongonzalezdc/tradesflow">github.com/simongonzalezdc/tradesflow</a>
       </div>
     </footer>

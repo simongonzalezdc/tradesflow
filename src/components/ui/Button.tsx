@@ -45,7 +45,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         type={type}
         disabled={isDisabled}
         className={cn(
-          'inline-flex items-center justify-center rounded-md font-semibold tracking-[-0.01em]',
+          'inline-flex items-center justify-center rounded-md font-semibold tracking-normal',
           'focus:outline-none focus:ring-2 focus:ring-offset-2',
           'transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] active:translate-y-px',
           'disabled:cursor-not-allowed disabled:opacity-50 disabled:active:translate-y-0',

@@ -78,8 +78,8 @@ export default function SignupPage() {
     <AuthShell
       title="Start with a cleaner field-service record."
       subtitle="Create the workspace your team will use for customers, scheduled work, equipment history, service notes, and billing handoffs."
-      panelTitle="Free trial"
-      panelText="No credit card required. Account setup is live today; core field-service modules are rolling out through 2026."
+      panelTitle="Prototype account"
+      panelText="Account setup is live today. The deeper field-service workflow is the product direction to validate before production use."
     >
       <div className="space-y-7">
         {error && (

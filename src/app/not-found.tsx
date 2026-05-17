@@ -9,8 +9,8 @@ export default function NotFound() {
         <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <div>
             <BrandLockup />
-            <p className="mt-12 text-xs font-black uppercase tracking-[0.22em] text-amber-700">Missing route</p>
-            <h1 className="mt-4 max-w-2xl text-5xl font-black leading-[0.95] tracking-[-0.055em] sm:text-6xl">
+            <p className="mt-12 text-xs font-black uppercase tracking-normal text-amber-700">Missing route</p>
+            <h1 className="mt-4 max-w-2xl text-5xl font-black leading-[0.95] tracking-normal sm:text-6xl">
               This record is not on the board.
             </h1>
             <p className="mt-5 max-w-xl text-base leading-7 text-slate-600">
@@ -33,8 +33,8 @@ export default function NotFound() {
             <div className="rounded-md bg-white p-5 ring-1 ring-white/20">
               <div className="flex items-center justify-between border-b border-slate-200 pb-4">
                 <div>
-                  <p className="text-xs font-black uppercase tracking-[0.2em] text-slate-500">Route check</p>
-                  <h2 className="mt-1 text-2xl font-black tracking-[-0.04em]">404</h2>
+                  <p className="text-xs font-black uppercase tracking-normal text-slate-500">Route check</p>
+                  <h2 className="mt-1 text-2xl font-black tracking-normal">404</h2>
                 </div>
                 <span className="rounded-md bg-amber-100 px-3 py-2 text-sm font-bold text-amber-900">Needs dispatch</span>
               </div>

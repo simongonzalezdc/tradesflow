@@ -99,7 +99,7 @@ model Business {
   zipCode       String?
   logo          String?
   primaryColor  String?  @default("#3B82F6")
-  timezone      String   @default("America/Toronto")
+  timezone      String   @default("America/New_York")
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
 
@@ -304,7 +304,7 @@ model Notification {
 }
 
 // ============================================================================
-// Consent & Privacy (PIPEDA Compliance)
+// Consent & Privacy Foundation
 // ============================================================================
 
 enum ConsentType {
