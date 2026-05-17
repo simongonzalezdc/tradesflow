@@ -57,7 +57,7 @@ export function MarketingFooter() {
         <div>
           <BrandLockup tone="dark" />
           <p className="mt-5 max-w-xl text-sm leading-6">
-            Portfolio prototype for inspection-heavy service businesses that need cleaner customer
+            Portfolio prototype for asset-heavy service businesses that need cleaner customer
             records, equipment history, service notes, deficiencies, and billing handoffs.
           </p>
         </div>

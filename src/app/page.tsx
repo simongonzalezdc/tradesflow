@@ -5,7 +5,7 @@ import { BrandLockup, MarketingFooter } from '@/components/marketing/Brand';
 const operatingSignals = [
   { value: 'Portfolio', label: 'honest prototype posture' },
   { value: 'Live', label: 'account and auth foundation' },
-  { value: 'Clear', label: 'inspection-heavy example lane' },
+  { value: 'Several', label: 'workflow examples, not one target' },
   { value: 'Planned', label: 'QBO-style billing handoff' },
 ];
 
@@ -35,9 +35,9 @@ const productModules = [
     body: 'Profiles connect contact details, service addresses, visits, invoices, equipment, and notes so the office and field crew work from the same story.',
   },
   {
-    eyebrow: 'Inspection work',
+    eyebrow: 'Evidence-heavy work',
     title: 'Designed for jobs that leave evidence behind.',
-    body: 'Recurring inspections, deficiency notes, photos, follow-ups, and report-ready service records are the strongest example of the product shape.',
+    body: 'Recurring maintenance, deficiency notes, photos, follow-ups, and report-ready service records are the strongest example of the product shape.',
   },
   {
     eyebrow: 'Equipment Passport',
@@ -54,21 +54,25 @@ const productModules = [
 const readiness = [
   ['Live foundation', 'Authentication, account setup, business profile creation, privacy consent, data-rights endpoints, and route protection are in place.'],
   ['Prototype workflow', 'Customer management, scheduling, invoicing, Equipment Passport, notifications, and team management are the next visible product layers.'],
-  ['Example lane', 'Fire and life-safety service work is a strong visualization case because inspection history, deficiencies, reports, and billing handoffs all matter.'],
+  ['Example patterns', 'Backup power, kitchen equipment, access-control, and life-safety work all share the same site, asset, evidence, follow-up, and billing pain.'],
 ];
 
 const fitCases = [
   {
-    title: 'Recurring inspection businesses',
-    body: 'They need durable site history, technician notes, equipment records, deficiencies, and follow-up visibility.',
+    title: 'Backup power service',
+    body: 'Generator and transfer-switch work needs maintenance logs, test evidence, battery notes, repair quotes, and clean invoice handoff.',
   },
   {
-    title: 'Small operators with admin drag',
-    body: 'They often lose margin when completed field work has to be reconstructed later for billing or customer updates.',
+    title: 'Commercial kitchen equipment',
+    body: 'Ovens, fryers, walk-ins, warranty notes, parts history, and repeat calls all benefit from one visible asset record.',
   },
   {
-    title: 'Design partners, not generic buyers',
-    body: 'The right conversation is about shaping a serious workflow from a credible prototype, not selling a finished platform that does not exist yet.',
+    title: 'Access-control integrators',
+    body: 'Panels, door controllers, cameras, site notes, customer approvals, and follow-up quotes need durable context across visits.',
+  },
+  {
+    title: 'Life-safety inspections',
+    body: 'Fire and safety work is still a good example, but only as one workflow pattern among several evidence-heavy service operations.',
   },
 ];
 
@@ -79,7 +83,7 @@ const faqs = [
   },
   {
     q: 'Is this customized for one company?',
-    a: 'No. Fire and life-safety work is used as a strong example because the workflow has inspections, deficiencies, service history, and billing handoffs. The product remains a broader field-service prototype.',
+    a: 'No. The page uses several workflow examples because good B2B positioning should help different operators map their own work to the same problem shape without pretending the prototype is bespoke.',
   },
   {
     q: 'Why focus on equipment history?',
@@ -122,7 +126,7 @@ export default function Home() {
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.88fr_1.12fr] lg:items-center">
           <div>
             <p className="inline-flex rounded-md border border-amber-300 bg-amber-100 px-3 py-1 text-xs font-black uppercase tracking-normal text-amber-900">
-              Portfolio prototype for inspection-heavy field service
+              Portfolio prototype for asset-heavy field service
             </p>
             <h1 className="mt-6 max-w-4xl text-5xl font-black leading-none tracking-normal text-slate-950 sm:text-6xl lg:text-7xl">
               Field service records that hold up after the job is done.
@@ -131,7 +135,7 @@ export default function Home() {
               TradesFlow helps operators visualize a cleaner workspace for customers,
               scheduled work, equipment history, service notes, deficiencies, and billing
               handoffs. It is presented honestly as a working portfolio foundation, not a
-              fake launched SaaS.
+              launched SaaS with invented proof.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
@@ -170,7 +174,7 @@ export default function Home() {
           <SectionHeader
             eyebrow="Operating flow"
             title="From first call to clean handoff, one record keeps moving."
-            body="The product direction follows the practical path an inspection-heavy service team repeats every day."
+            body="The product direction follows the practical path an asset-heavy service team repeats every day."
           />
           <div className="mt-10 grid gap-4 lg:grid-cols-4">
             {workflowSteps.map((step, index) => (
@@ -231,10 +235,10 @@ export default function Home() {
         <div className="mx-auto max-w-7xl">
           <SectionHeader
             eyebrow="Problem fit"
-            title="The best conversations are about admin pain, not AI for its own sake."
-            body="TradesFlow works best as a way to show operators how their existing work could become more organized without replacing their craft, judgment, or customer relationships."
+            title="Several ways operators can recognize the same workflow."
+            body="The pattern is a site plus physical assets plus evidence from the field plus follow-up work. These examples are meant to make the workflow visible, not to overclaim specialization."
           />
-          <div className="mt-10 grid gap-4 lg:grid-cols-3">
+          <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             {fitCases.map((item) => (
               <article key={item.title} className="rounded-lg bg-[#f7f4ee] p-6 ring-1 ring-slate-200">
                 <h3 className="text-xl font-black tracking-normal">{item.title}</h3>
@@ -316,8 +320,8 @@ function ProductPreview() {
           <div className="space-y-3">
             {[
               ['08:30', 'Maple Ridge Apartments', 'Annual sprinkler inspection', 'Confirmed'],
-              ['10:15', 'Harbor Market', 'Extinguisher service', 'In progress'],
-              ['13:40', 'Cedar Street Offices', 'Alarm panel follow-up', 'Quote needed'],
+              ['10:15', 'Harbor Kitchen Group', 'Walk-in cooler service', 'In progress'],
+              ['13:40', 'Cedar Street Offices', 'Access-control follow-up', 'Quote needed'],
             ].map(([time, company, job, status]) => (
               <div key={company} className="rounded-lg bg-white p-4 ring-1 ring-slate-200">
                 <div className="flex items-start justify-between gap-3">
@@ -334,13 +338,13 @@ function ProductPreview() {
             <div className="flex items-start justify-between gap-4">
               <div>
                 <p className="text-xs font-black uppercase tracking-normal text-blue-700">Equipment Passport</p>
-                <h3 className="mt-2 text-xl font-black tracking-normal text-slate-950">Sprinkler riser SR-01</h3>
-                <p className="mt-1 text-sm text-slate-500">Model: VK-QR - Serial: SR1-28A</p>
+                <h3 className="mt-2 text-xl font-black tracking-normal text-slate-950">Transfer switch ATS-02</h3>
+                <p className="mt-1 text-sm text-slate-500">Model: TX-200 - Serial: ATS-28A</p>
               </div>
               <span className="rounded-md bg-emerald-100 px-2 py-1 text-xs font-bold text-emerald-800">Active</span>
             </div>
             <div className="mt-5 grid grid-cols-3 gap-2">
-              {['Nameplate', 'Valve tag', 'Condition'].map((label) => (
+              {['Nameplate', 'Load test', 'Condition'].map((label) => (
                 <div key={label} className="flex aspect-[4/3] items-end rounded-md bg-slate-100 p-2 text-xs font-bold text-slate-500 ring-1 ring-slate-200">
                   {label}
                 </div>
@@ -348,8 +352,8 @@ function ProductPreview() {
             </div>
             <div className="mt-5 space-y-3">
               {[
-                ['2026-05-12', 'Annual inspection completed. Deficiency note attached for corroded escutcheon.'],
-                ['2025-10-18', 'Pressure gauge replaced and tagged for follow-up verification.'],
+                ['2026-05-12', 'Monthly exercise test completed. Battery replacement recommended.'],
+                ['2025-10-18', 'Transfer switch cleaned and tagged for follow-up verification.'],
                 ['2024-11-04', 'Initial asset record created from prior service invoice.'],
               ].map(([date, note]) => (
                 <div key={date} className="grid grid-cols-[5.5rem_1fr] gap-3 border-t border-slate-100 pt-3 text-sm">

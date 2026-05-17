@@ -1,6 +1,6 @@
 # TradesFlow
 
-TradesFlow is a portfolio prototype for inspection-heavy field-service businesses: customer records, scheduled work, equipment history, service notes, deficiencies, and billing handoffs in one focused workspace.
+TradesFlow is a portfolio prototype for asset-heavy field-service businesses: customer records, scheduled work, equipment history, service notes, deficiencies, and billing handoffs in one focused workspace.
 
 The current public posture is intentionally honest. This is not being presented as a production SaaS with customers, published plans, or finished integrations. It is a working product foundation and a visualizable direction for small operators who need better operational memory before work turns into invoices.
 
@@ -8,7 +8,7 @@ Public brief: https://simongonzalezdc.github.io/tradesflow/
 
 ## Why It Exists
 
-Small service teams often run on a messy chain of calls, texts, spreadsheets, photos, invoices, and memory. That gets especially painful when the work is recurring or inspection-driven: the team needs to know what was found, what was fixed, what still needs follow-up, and what should become a billable handoff.
+Small service teams often run on a messy chain of calls, texts, spreadsheets, photos, invoices, and memory. That gets especially painful when the work is recurring, asset-based, or inspection-driven: the team needs to know what was found, what was fixed, what still needs follow-up, and what should become a billable handoff.
 
 TradesFlow explores a simpler operating record:
 
@@ -17,11 +17,18 @@ TradesFlow explores a simpler operating record:
 - Record service notes, photos, deficiencies, and asset history.
 - Hand clean operational context to billing or accounting.
 
-## Example Fit
+## Example Workflows
 
-The strongest visualization lane is fire and life-safety service work because those operators live with recurring inspections, deficiencies, service history, compliance-sensitive documentation, and QuickBooks-style accounting handoffs.
+The strongest positioning pattern is not one narrow industry. It is a cluster of businesses where the same operational pain repeats: a site, a physical asset, recurring visits, evidence capture, unresolved findings, and a billing or accounting handoff.
 
-That does not mean TradesFlow is tailored to one prospect or one company. Fire protection is the clearest example of the problem shape; the underlying workflow also applies to other inspection-heavy service businesses.
+Examples that fit the shape:
+
+- **Backup power and generator service** - recurring maintenance, transfer-switch records, test logs, battery photos, repair quotes, and invoice handoff.
+- **Commercial kitchen equipment service** - ovens, fryers, walk-ins, warranty notes, parts history, service photos, and repeat-call context.
+- **Access-control and security integrators** - door controllers, cameras, panels, site maps, device history, follow-up quotes, and customer approvals.
+- **Fire and life-safety service** - inspections, deficiencies, report-ready records, service history, and accounting handoff.
+
+These examples are meant to help an operator visualize their own business in the workflow. They are not claims that TradesFlow is production-ready for any regulated environment yet.
 
 ## Current State
 
