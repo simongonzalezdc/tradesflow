@@ -56,3 +56,5 @@ coverage/
 
 # Planning docs (local only)
 docs/superpowers/
+*.log
+dist/
