@@ -10,8 +10,8 @@ const registerSchema = z.object({
   name: z.string().min(1, 'Name is required'),
   businessName: z.string().min(1, 'Business name is required'),
   businessPhone: z.string().min(1, 'Business phone is required'),
-  privacyConsent: z.literal(true, {
-    errorMap: () => ({ message: 'You must agree to the privacy policy' }),
+  privacyConsent: z.boolean().refine((value) => value === true, {
+    message: 'You must agree to the privacy policy',
   }),
 });
 
