@@ -1,0 +1,12 @@
+version: 1
+suppress:
+  - id: CY-001
+    reason: "Reviewed false positive: these are environment-variable names, placeholders, and test credentials, not committed real credentials."
+    files:
+      - ".env.example"
+      - "src/lib/auth/config.ts"
+      - "src/__tests__/auth/config.test.ts"
+      - "src/__tests__/api/auth/register.test.ts"
+    reviewed_by: simon
+    reviewed_at: "2026-05-29"
+

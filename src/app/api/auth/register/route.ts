@@ -44,7 +44,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { email, password, name, businessName, businessPhone, privacyConsent } = validationResult.data;
+    const { email, password, name, businessName, businessPhone } = validationResult.data;
 
     // Check if user already exists
     const existingUser = await db.user.findUnique({
@@ -104,7 +104,8 @@ export async function POST(request: NextRequest) {
     });
 
     // Return user without password
-    const { password: _, ...userWithoutPassword } = user;
+    const userWithoutPassword = { ...user };
+    delete (userWithoutPassword as { password?: unknown }).password;
 
     return NextResponse.json(
       {
