@@ -5,8 +5,8 @@ import { db } from '@/lib/db/client';
 import { z } from 'zod';
 
 const deletionSchema = z.object({
-  confirmation: z.literal('DELETE', {
-    errorMap: () => ({ message: 'Type DELETE to confirm account deletion' }),
+  confirmation: z.string().refine((value) => value === 'DELETE', {
+    message: 'Type DELETE to confirm account deletion',
   }),
 });
 
