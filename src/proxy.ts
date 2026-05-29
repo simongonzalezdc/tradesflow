@@ -69,8 +69,8 @@ export const middlewareHandler = withAuth(
   }
 );
 
-// Default export for Next.js middleware
-export default function middleware(req: NextRequest, event: NextFetchEvent) {
+// Default export for Next.js Proxy
+export default function proxy(req: NextRequest, event: NextFetchEvent) {
   const { pathname } = req.nextUrl;
 
   if (isIgnoredRoute(pathname)) {
@@ -93,7 +93,7 @@ export default function middleware(req: NextRequest, event: NextFetchEvent) {
   return middlewareHandler(req as NextRequestWithAuth, event);
 }
 
-// Configure which routes the middleware should run on
+// Configure which routes the proxy should run on
 export const config = {
   matcher: [
     /*
