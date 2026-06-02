@@ -1,0 +1,12 @@
+# TradesFlow
+
+> Field-service operations prototype for asset-heavy trades — equipment, service notes, deficiencies, billing.
+
+## What it is
+A Next.js prototype for field-service operators: equipment records, service notes, deficiencies, scheduling, and billing handoffs.
+
+## Install / use
+Clone and run with npm; see the live demo linked in the repo.
+
+## Links
+- Repository: https://github.com/simongonzalezdc/tradesflow
