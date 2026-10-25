@@ -24,6 +24,7 @@ jobs:
       DATABASE_URL: postgresql://placeholder:placeholder@localhost:5432/placeholder
       NEXTAUTH_SECRET: ci-placeholder-secret
       NEXTAUTH_URL: http://localhost:3000
+      NEXT_TELEMETRY_DISABLED: "1"
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
         with:
