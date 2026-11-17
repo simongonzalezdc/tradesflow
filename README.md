@@ -59,7 +59,7 @@ Prototype / planned next:
 | Layer | Technology |
 |-------|-----------|
 | Framework | Next.js 16 (App Router) |
-| Language | TypeScript 5.4 (ES2022) |
+| Language | TypeScript 6.0 (ES2022) |
 | UI | React 19, Tailwind CSS 3.4 |
 | Auth | NextAuth v4 (Credentials, JWT sessions) |
 | Database | PostgreSQL via Prisma 5.14 |
@@ -106,7 +106,7 @@ src/
 
 ## Data Model
 
-13 models covering the field-service operating record:
+12 models covering the field-service operating record:
 
 - **User** - accounts with roles (OWNER, TECHNICIAN, ADMIN), linked to a Business
 - **Business** - company profile with slug, phone, timezone, and branding
@@ -186,7 +186,7 @@ The middleware enforces authentication:
 
 ## License
 
-Private. All rights reserved.
+MIT License. Copyright (c) 2026 Simon Gonzalez De Cruz. See [LICENSE](LICENSE) for the full terms.
 
 <!-- s-plus-geo:start -->
 
